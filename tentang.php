@@ -9,7 +9,7 @@
         style="background-image: url(assets/img/page-title-bg.jpg)"
       >
         <div class="container position-relative">
-          <h1>Sistem informasi geografis Tempat Pembuangan Sampah</h1>
+          <h1>Tempat Pembuangan Sampah Sementara (TPS) </h1>
         </div>
       </div>
       <!-- End Page Title -->
