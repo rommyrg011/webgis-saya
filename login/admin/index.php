@@ -9,6 +9,15 @@ if($_SESSION['status'] =="login"){
 $h = mysqli_query($koneksi, "select * from user");
 $a = mysqli_num_rows($h);
 
+$b = mysqli_query($koneksi, "select * from kecamatan");
+$c = mysqli_num_rows($b);
+
+$d = mysqli_query($koneksi, "select * from alat");
+$e = mysqli_num_rows($d);
+
+$f = mysqli_query($koneksi, "select * from tps");
+$g = mysqli_num_rows($f);
+
 // $h2 = mysqli_query($koneksi, "select * from peminjaman where status='dipinjam'");
 // $p = mysqli_num_rows($h2);
 
@@ -51,28 +60,28 @@ $a = mysqli_num_rows($h);
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><center>Pengguna <h1 align="center"><a href="operator.php"><?=$a; ?></a></h1></center></div>
+                                    <div class="card-body"><center>Pengguna <h1 align="center"><a href="administrator.php"><?=$a; ?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><center>Stock Barang <h1 align="center"><a href="stock.php"></a></h1></center></div>
+                                    <div class="card-body"><center>Kecamatan <h1 align="center"><a href="kecamatan.php"><?=$c;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">  
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><center>Barang Masuk <h1 align="center"><a href="barangmasuk.php"></a></h1></center></div>
+                                    <div class="card-body"><center>Alat Angkut <h1 align="center"><a href="alatangkut.php"><?=$e;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><center>Barang Terjual <h1 align="center"><a href="penjualan.php"></a></h1></center></div>
+                                    <div class="card-body"><center>TPS <h1 align="center"><a href="tps.php"><?=$g;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>

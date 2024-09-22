@@ -21,6 +21,7 @@ if($cek > 0){
 		session_start();
 		$_SESSION['id'] = $data['id'];
 		$_SESSION['status'] = "login";
+		$_SESSION['nama_lengkap'] = $data['nama_lengkap'];
 		$_SESSION['username'] = $username;
 		$_SESSION['level'] = "admin";
 		// alihkan ke halaman dashboard admin
