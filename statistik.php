@@ -19,14 +19,14 @@ include 'templates/head.php'; ?>
       <!-- Stats Counter Section -->
       <section id="stats-counter" class="stats-counter section">
 <center>
-      <div style="width:100%;max-width:1000px;height:100vh;">
+      <div style="width:100%;max-width:900px;height:100vh;">
 		<canvas id="myChart"></canvas>
 	</div>
 
     <script>
 		var ctx = document.getElementById("myChart").getContext('2d');
 		var myChart = new Chart(ctx, {
-			type: 'bar',
+			type: 'pie',  // Ubah tipe chart menjadi 'pie'
 			data: {
 				labels: ["BANJARMASIN TENGAH", "BANJARMASIN TIMUR", "BANJARMASIN BARAT", "BANJARMASIN SELATAN", "BANJARMASIN UTARA"],
 				datasets: [{
@@ -61,7 +61,7 @@ include 'templates/head.php'; ?>
 					'rgba(153, 255, 204, 1)'
 					],
 					borderColor: [
-					'rgba(255,99,132,1)',
+					'rgba(255,99,132, 1)',
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
 					'rgba(75, 192, 192, 1)',
@@ -71,12 +71,14 @@ include 'templates/head.php'; ?>
 				}]
 			},
 			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
+				responsive: true,
+				plugins: {
+					legend: {
+						position: 'top',
+					},
+					tooltip: {
+						enabled: true,
+					}
 				}
 			}
 		});
@@ -89,4 +91,3 @@ include 'templates/head.php'; ?>
     <?php include 'templates/footer.php'; ?>
 
     <?php include 'templates/js.php'; ?>
-

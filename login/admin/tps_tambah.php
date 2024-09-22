@@ -80,7 +80,7 @@ if($_SESSION['status'] =="login"){
         </div>
         <div class="mb-3">
         <label>Maps Direction:</label>
-        <p>Catatan ! Jika linknya terlalu panjang bisa di perpendek melalui Short Url</p>
+        <!-- <p>Catatan ! Jika linknya terlalu panjang bisa di perpendek melalui Short Url</p> -->
         <input type="text" class="form-control" name="maps_direction" placeholder="Maps Direction" required>
         </div>
         <label>Foto TPS:</label>
