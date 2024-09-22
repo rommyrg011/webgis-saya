@@ -46,7 +46,7 @@ window.onload = function() {
     var lastShown = localStorage.getItem('lastModalShown');
 
     // Jika modal belum pernah ditampilkan atau sudah lebih dari 24 jam sejak terakhir kali ditampilkan
-    if (!lastShown || (now - lastShown) > 24 * 60 * 60 * 1000) { // 24 jam dalam milidetik
+    if (!lastShown || (now - lastShown) > 2 * 60 * 60 * 1000) { // 24 jam dalam milidetik
       
       // Tampilkan modal
       var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
