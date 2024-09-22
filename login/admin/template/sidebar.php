@@ -12,7 +12,7 @@
                             </a>
                             <div class="collapse" id="collapseanggota" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="administrator.php">Administrator</a>
+                                    <a class="nav-link" href="administrator">Administrator</a>
                                 </nav>
                             </div>
                             
@@ -23,8 +23,8 @@
                             </a>
                             <div class="collapse" id="collapsemaster" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="kecamatan.php">Kecamatan</a>
-                                    <a class="nav-link" href="alatangkut.php">Alat Angkut</a>
+                                    <a class="nav-link" href="kecamatan">Kecamatan</a>
+                                    <a class="nav-link" href="alatangkut">Alat Angkut</a>
                                 </nav>
                             </div>
 
@@ -36,21 +36,21 @@
                             </a>
                             <div class="collapse" id="collapsetransaksi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="tps.php">Hotspot</a>
+                                    <a class="nav-link" href="tps">Hotspot</a>
                                 </nav>
                             </div>
 
-                            <a class="nav-link" href="feedback.php">
+                            <a class="nav-link" href="feedback">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-message"></i></div>
                                 feedback
                             </a>
 
-                            <a class="nav-link" href="url.php">
+                            <!-- <a class="nav-link" href="url.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-link"></i></div>
                                 Short URl
-                            </a>
+                            </a> -->
 
-                            <a class="nav-link" href="../logout.php">
+                            <a class="nav-link" href="../logout">
                                 <div class="sb-nav-link-icon"><i class="fas fa-sign-out"></i></div>
                                Logout
                             </a>

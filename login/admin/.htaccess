@@ -1,6 +1,11 @@
-RewriteEngine On
+# RewriteEngine On
 
-RewriteCond $1 !^(url\.php)
-RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond $1 !^(url\.php)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ url.php?/$1 [L]
+
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ url.php?/$1 [L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
