@@ -11,11 +11,11 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="./">Beranda</a></li>
-            <li><a href="tentang.php">Tentang</a></li>
-            <li><a href="kabupaten.php">Kota</a></li>
-            <li><a href="data_tps.php">Sebaran Tps</a></li>
-            <li><a href="statistik.php">statistik</a></li>
-            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="tentang">Tentang</a></li>
+            <li><a href="kabupaten">Kota</a></li>
+            <li><a href="data_tps">Sebaran Tps</a></li>
+            <li><a href="statistik">statistik</a></li>
+            <li><a href="feedback">Feedback</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
