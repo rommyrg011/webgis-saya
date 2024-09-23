@@ -3,6 +3,27 @@ include 'koneksi.php';
 include 'templates/head.php'; ?>
   <body class="about-page">
 <?php include 'templates/navbar.php'; ?>
+<style>
+	/* Default style (untuk desktop/laptop) */
+.chartpie {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Untuk perangkat mobile (layar dengan lebar kurang dari 768px) */
+@media (max-width: 768px) {
+    .chartpie {
+        width: 100%;
+        max-width: 100%; /* Memastikan div memenuhi seluruh lebar layar */
+        padding: 5px; /* Menyesuaikan padding agar sesuai dengan ukuran kecil */
+    }
+}
+
+</style>
 
     <main class="main">
       <!-- Page Title -->
@@ -19,18 +40,18 @@ include 'templates/head.php'; ?>
       <!-- Stats Counter Section -->
       <section id="stats-counter" class="stats-counter section">
 <center>
-      <div style="width:100%;max-width:900px;height:100vh;">
+      <div class="chartpie">
 		<canvas id="myChart"></canvas>
 	</div>
 
     <script>
 		var ctx = document.getElementById("myChart").getContext('2d');
 		var myChart = new Chart(ctx, {
-			type: 'pie',  // Ubah tipe chart menjadi 'pie'
+			type: 'pie',  // Ubah tipe chart menjadi 'pie chart' 
 			data: {
 				labels: ["BANJARMASIN TENGAH", "BANJARMASIN TIMUR", "BANJARMASIN BARAT", "BANJARMASIN SELATAN", "BANJARMASIN UTARA"],
 				datasets: [{
-					label: 'Unit',
+					
 					data: [
 					<?php 
 					$bjm_t = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN TENGAH'");
@@ -54,17 +75,17 @@ include 'templates/head.php'; ?>
 					?>
 					],
 					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(52, 57, 57, 1)',
 					'rgba(153, 255, 204, 1)'
 					],
 					borderColor: [
 					'rgba(255,99,132, 1)',
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
+					'rgba(52, 57, 57, 1)',
 					'rgba(153, 255, 204, 1)'
 					],
 					borderWidth: 2
@@ -72,6 +93,7 @@ include 'templates/head.php'; ?>
 			},
 			options: {
 				responsive: true,
+				// maintainAspectRatio: false, // Mengatur agar grafik responsif
 				plugins: {
 					legend: {
 						position: 'top',

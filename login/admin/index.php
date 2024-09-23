@@ -60,28 +60,28 @@ $g = mysqli_num_rows($f);
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><center>Pengguna <h1 align="center"><a href="administrator.php"><?=$a; ?></a></h1></center></div>
+                                    <div class="card-body"><center>Pengguna <h1 align="center"><a href="administrator"><?=$a; ?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><center>Kecamatan <h1 align="center"><a href="kecamatan.php"><?=$c;?></a></h1></center></div>
+                                    <div class="card-body"><center>Kecamatan <h1 align="center"><a href="kecamatan"><?=$c;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">  
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><center>Alat Angkut <h1 align="center"><a href="alatangkut.php"><?=$e;?></a></h1></center></div>
+                                    <div class="card-body"><center>Alat Angkut <h1 align="center"><a href="alatangkut"><?=$e;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><center>TPS <h1 align="center"><a href="tps.php"><?=$g;?></a></h1></center></div>
+                                    <div class="card-body"><center>TPS <h1 align="center"><a href="tps"><?=$g;?></a></h1></center></div>
                                     <div class="card d-flex align-items-center justify-content-between">
                                     </div>
                                 </div>
