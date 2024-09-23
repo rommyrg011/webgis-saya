@@ -73,7 +73,7 @@ if(isset($_POST['hapusadmin'])){
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="administrator.php"
+			window.location.href="feedback"
 			</script>';
         }
     }

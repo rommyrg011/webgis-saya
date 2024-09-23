@@ -33,7 +33,7 @@ if($_SESSION['status'] =="login"){
                         <a class="dash" href="./">Dashboard</a> / Kecamatan
                           </div>
                           <div class="col-md-12">
-                            <a href="kecamatan_tambah.php" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="kecamatan_tambah" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
                         </div>
 
                         <script>
@@ -81,7 +81,7 @@ if(isset($_POST['editkecamatan'])){
     } else {
       echo '
           <script>alert("Gagal");
-          window.location.href="kecamatan.php"
+          window.location.href="kecamatan"
           </script>';
     }
   }
@@ -98,7 +98,7 @@ if(isset($_POST['editkecamatan'])){
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="kecamatan.php"
+			window.location.href="kecamatan"
 			</script>';
         }
     }

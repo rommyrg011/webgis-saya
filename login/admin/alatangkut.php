@@ -33,7 +33,7 @@ if($_SESSION['status'] =="login"){
                         <a class="dash" href="./">Dashboard</a> / Alat Angkut
                           </div>
                           <div class="col-md-12">
-                            <a href="alatangkut_tambah.php" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="alatangkut_tambah" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
                         </div>
 
                         <script>
@@ -75,7 +75,7 @@ if(isset($_POST['hapusalat'])){
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="alatangkut.php"
+			window.location.href="alatangkut"
 			</script>';
         }
     }

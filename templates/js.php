@@ -106,7 +106,8 @@
 			var myStyle<?=$key?> = {
 			    "color": "<?=$value?>",
 			    "weight": 1.2,
-			    "opacity": 1
+			    "opacity": 1,
+				"fillOpacity" : 0.5 // untuk mengatur transparansinya
 			};
 
 			<?php

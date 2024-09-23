@@ -33,7 +33,7 @@ if($_SESSION['status'] =="login"){
                         <a class="dash" href="./">Dashboard</a> / Administrator
                           </div>
                           <div class="col-md-12">
-                            <a href="admin_tambah.php" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="admin_tambah" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
                         </div>
 
                         <script>
@@ -75,7 +75,7 @@ if(isset($_POST['hapusadmin'])){
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="administrator.php"
+			window.location.href="administrator"
 			</script>';
         }
     }

@@ -68,7 +68,17 @@ if($_SESSION['status'] =="login"){
         </div>
         <div class="mb-3">
         <label>Alat Angkutan:</label>
-        <input type="text" class="form-control" name="alat_angkutan" placeholder="Alat Angkutan" required>
+        <select type="text" class="form-select" name="alat_angkutan">
+            <option hidden>-- Pilih --</option>
+            <?php
+            $ambilangkut = mysqli_query($koneksi, "select * from alat");
+            while($aa=mysqli_fetch_array($ambilangkut)){
+                $na = $aa['nama_alat'];
+                ?>
+                <option><?=$na;?></option>
+            <?php } ?>
+            
+        </select>
         </div>
         <div class="mb-3">
         <label>Lattitude:</label>

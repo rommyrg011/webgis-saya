@@ -33,7 +33,7 @@ if($_SESSION['status'] =="login"){
                         <a class="dash" href="./">Dashboard</a> / TPS
                           </div>
                           <div class="col-md-12">
-                            <a href="tps_tambah.php" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="tps_tambah" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
                         </div>
 
                         <script>

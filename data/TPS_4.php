@@ -28,7 +28,7 @@ var json_TPS_4 = {
         $op = addslashes($op);
 
         // Escape karakter untuk HTML di dalam JSON
-        $formAction = 'detail.php';
+        $formAction = 'detail';
         $hiddenInput = '<input type="hidden" name="id_tps" value="'.$id.'">';
         $button = '<button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-scroll"></i> Detail</button>';
         $detail = '<form action="'.$formAction.'" method="GET">'.$hiddenInput.$button.'</form>';
