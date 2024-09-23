@@ -152,8 +152,8 @@ if(isset($_POST['editstock'])){
                                             <td><?=$kec; ?></td>
                                             <td><?=$namatps; ?></td>
                                             <td>
-                                            <?php if(strlen($alamat) > 40){
-                                                echo substr($alamat, 0, 40) . '...';
+                                            <?php if(strlen($alamat) > 30){
+                                                echo substr($alamat, 0, 30) . '...';
                                             }else {
                                                 echo $alamat;
                                             } $alamat; ?>
@@ -165,7 +165,11 @@ if(isset($_POST['editstock'])){
                                             <td><?=$alat; ?></td>
                                             <td><?=$lat; ?></td>
                                             <td><?=$long; ?></td>
-                                            <td><?=$mapsd; ?></td>
+                                            <td><?php if(strlen($mapsd) > 35){
+                                                echo substr($mapsd, 0, 35) . '...';
+                                            }else {
+                                                echo $mapsd;
+                                            } $mapsd; ?></td>
                                             <td></td>
                                         </tr>                                  
 <!-- The Modal -->
