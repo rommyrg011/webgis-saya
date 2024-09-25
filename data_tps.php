@@ -219,16 +219,8 @@
        <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kecamatan</th>
-                                            <th>Nama TPS</th>
-                                            <th>Lokasi</th>
-                                            <th>Kapasitas</th>
-                                            <th>Ukuran</th>
-                                            <th>Operasional</th>
-                                            <th>Jam Angkut</th>
-                                            <th>Lattitude</th>
-                                            <th>Longitude</th>
-                                            <th>Maps Direction</th>
+                                            <th>Nama</th>
+                                            <th>Jumlah</th>
                                             
                                         </tr>
                                     </thead>
@@ -264,46 +256,8 @@
                                             <td><?=$i++; ?></td>
                                             <td><?=$kec; ?></td>
                                             <td><?=$namatps; ?></td>
-                                            <td><?=$alamat; ?></td>
-                                            <td><?=$kapasitas; ?></td>
-                                            <td><?=$ukuran; ?></td>
-                                            <td><?=$jamop; ?></td>
-                                            <td><?=$jaman; ?></td>
-                                            <td><?=$lat; ?></td>
-                                            <td><?=$long; ?></td>
-                                            <td><button type="button" class="btn btn-sm btn-circle btn-secondary">
-                                            <i class="bi bi-geo-alt-fill" data-bs-toggle="modal" data-bs-target="#delete<?=$idtps;?>">
-                                                </button></i>
-                                                </td>
                                             
                                         </tr> 
-                                        <!-- kepunyaan button Delete -->                                       
-<!-- The Modal -->
-<div class="modal" id="delete<?=$idtps;?>">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Link Maps</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-<style>
-  u {
-    color : blue;
-  }
-</style>
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-      <?=$img; ?>
-      <hr>
-        <a href="<?=$mapsd;?>" target="_blank"><h3><u>Link Maps</u></h3></a>
-      </div>
-</form>
-        </div>
-            </div>  
-                </div>
                                         <?php } ?>
 
 

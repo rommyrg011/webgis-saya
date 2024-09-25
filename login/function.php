@@ -14,11 +14,11 @@ if(isset($_POST['tambahadmin'])){
 	('$nm', '$user', '$pass', '$lv')");
 		if($tadmin){
 			$_SESSION['notif'] = "Berhasil Ditambahkan";
-		header('location: administrator.php');
+		header('location: administrator');
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="administrator.php"
+			window.location.href="administrator"
 			</script>';
 		}
 	}
@@ -30,11 +30,11 @@ if(isset($_POST['tambahalat'])){
 	('$nmalat')");
 		if($talat){
 			$_SESSION['notif'] = "Berhasil Ditambahkan";
-		header('location: alatangkut.php');
+		header('location: alatangkut');
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="alatangkut.php"
+			window.location.href="alatangkut"
 			</script>';
 		}
 	}
@@ -47,17 +47,16 @@ if(isset($_POST['tambahkecamatan'])){
     $kep = $_POST['kepadatan'];
     $lat = $_POST['lattitude'];
     $long = $_POST['longitude'];
-    $
 
     $tambahkecamatan = mysqli_query($koneksi, "insert into kecamatan (nama_kec, luas_w, penduduk,kepadatan, lattitude, longitude) values 
     ('$nmk', '$luas', '$pend', '$kep', '$lat', '$long')");
     if($tambahkecamatan){
         $_SESSION['notif'] = "Berhasil Ditambahkan";
-		header('location: kecamatan.php');
+		header('location: kecamatan');
     }  else {
 		echo '
 		<script>alert("Gagal");
-		window.location.href="kecamatan.php"
+		window.location.href="kecamatan"
 		</script>';
 	}
 }
@@ -97,18 +96,18 @@ if(in_array($ekstensi, $allowed_extension) === true){
     ('$nmt', '$kecamatan', '$alamat', '$kap', '$uk', '$jam', '$jam_a', '$alat', '$lat', '$lng', '$maps', '$image')");
     if($tambahtps){
         $_SESSION['notif'] = "Berhasil Ditambahkan";
-		header('location: tps.php');
+		header('location: tps');
     }else {
 		echo '
 		<script>alert("Gagal");
-		window.location.href="tps.php"
+		window.location.href="tps"
 		</script>';
 	}
 } else {
   //jika ukuran filenya lebih dari 8 mb
   echo'
   <script> alert("Ukuran Gambar terlalu besar");
-  window.location.href="tps.php";
+  window.location.href="tps";
   </script>';
 }
 
@@ -116,7 +115,7 @@ if(in_array($ekstensi, $allowed_extension) === true){
 //jika gambar tidak png /jpg
     echo'
     <script> alert("File Harus png atau jpg");
-    window.location.href="tps.php";
+    window.location.href="tps";
     </script>';
     }
 }
