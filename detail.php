@@ -47,16 +47,11 @@
    
                                     
 <style>
-.zoomable:hover {
-  transform: scale(1.1);
-  transition: 0.3s ease;
-}
-
 .no-photo {
   text-align: right; /* Geser teks ke kanan */
-  font-style: italic; /* Opsional: tambahkan gaya font jika diinginkan */
-  color: #666; /* Opsional: tambahkan warna font jika diinginkan */
-  font-size: 50px; /* Sesuaikan ukuran font sesuai kebutuhan */
+  font-style: italic;
+  color: #666; 
+  font-size: 50px;
   margin-top: 180px; /* Geser teks ke bawah dengan margin atas */
   margin-right: 80px; /* untuk menggeser kalimat no photo sedikit ke kiri */
 }
@@ -167,7 +162,7 @@ img {
 
 </div>
 <div class="button-container">
-<a href="data_tps.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali Ke awal</a>
+<a href="data_tps" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali Ke awal</a>
     </div>
 </section><!-- /About Section -->
     </main>
