@@ -71,7 +71,7 @@
 
  
   <style type="text/css">
-    #mapid, #map { height: 80vh; }
+    #mapid, #map { height: 100vh; }
    	.icon {
 	display: inline-block;
 	margin: 2px;

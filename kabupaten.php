@@ -53,7 +53,6 @@
     <script>
       
       $(function(){
-
            $('.table').DataTable({
               "processing": true,
               "serverSide": true,
@@ -74,8 +73,6 @@
 
           });
         });
-
-    
 
 </script>
         

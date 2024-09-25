@@ -250,7 +250,7 @@
                                               } else {
                                               //jika ada gambar
                                               $img = '<img src="images/'.$gambar.'" class="zoomable">';
-                                                                            }
+                                              }
                                         ?>
                                         <tr>
                                             <td><?=$i++; ?></td>

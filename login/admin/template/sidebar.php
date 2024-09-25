@@ -1,6 +1,11 @@
 <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link" href="./">
+                                <div class="sb-nav-link-icon"><i class="fa fa-circle text-success fa-sm"></i></div>
+                                <small>Online</small>
+                            </a>
+                        
+                            <a class="nav-link" href="./">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
