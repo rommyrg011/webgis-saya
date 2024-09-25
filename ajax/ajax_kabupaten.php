@@ -13,7 +13,6 @@ if($_GET['action'] == "dataKecamatan"){
 		4 => 'kepadatan',
 		5 => 'lattitude',
 		6 => 'longitude',
-		7 => 'id_kec'
 	);
 
 	// Query untuk menghitung jumlah total data kecamatan
