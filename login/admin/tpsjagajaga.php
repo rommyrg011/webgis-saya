@@ -16,32 +16,7 @@ if($_SESSION['status'] =="login"){
     .dash:hover{
         color: blue;
     }
-
-    .dash {
-        text-decoration: none;
-        color: black;
-    }
-    .dash:hover {
-        color: blue;
-    }
-
-    /* CSS untuk memperkecil ukuran huruf di tabel */
-    table.table {
-        font-size: 14px; /* Atur ukuran font yang lebih kecil */
-    }
-
-    /* Jika ingin memperkecil ukuran font header tabel juga */
-    table.table th {
-        font-size: 14px;
-    }
-
-    /* Memperkecil ukuran font sel-sel tabel */
-    table.table td {
-        font-size: 14px;
-    }
 </style>
-
-</styl>
     <body class="sb-nav-fixed">
         <?php include './template/navbar.php'; ?>
         <div id="layoutSidenav">
@@ -133,8 +108,7 @@ if(isset($_POST['editstock'])){
                                 Data TPS
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                            <table class="table table-striped table-sm table-bordered">
+                                <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -155,51 +129,91 @@ if(isset($_POST['editstock'])){
                                     </thead>
                                     
                                     <tbody>
+                                        <?php
+                                    $tampiltps = mysqli_query($koneksi, "select * from tps order by id_tps DESC");
+                                    $i= 1;
+                                    while($data=mysqli_fetch_array($tampiltps)){
+                                        $idtps = $data['id_tps'];
+                                        $kec = $data['kecamatan'];
+                                        $namatps = $data['nama_tps'];
+                                        $alamat = $data['alamat'];
+                                        $kapasitas = $data['kapasitas'];
+                                        $ukuran = $data['ukuran_bangunan'];
+                                        $jamop = $data['jam_operasional'];
+                                        $jaman = $data['jam_angkutan'];
+                                        $alat = $data['alat_angkutan'];
+                                        $lat = $data['lattitude'];
+                                        $long = $data['longitude'];
+                                        $mapsd = $data['maps_direction'];
+                                        $tipe = $data['tipe'];
+                                        
+                                    
+                                        ?>
+                                        <tr>
+                                            <td><?=$i++; ?></td>
+                                            <td><?=$kec; ?></td>
+                                            <td><?=$tipe; ?></td>
+                                            <td><?=$namatps; ?></td>
+                                            <td>
+                                            <?php if(strlen($alamat) > 30){
+                                                echo substr($alamat, 0, 30) . '...';
+                                            }else {
+                                                echo $alamat;
+                                            } $alamat; ?>
+                                            </td>
+                                            <td><?=$kapasitas; ?></td>
+                                            <td><?=$ukuran; ?></td>
+                                            <td><?=$jamop; ?></td>
+                                            <td><?=$jaman; ?></td>
+                                            <td><?=$alat; ?></td>
+                                            <td><?=$lat; ?></td>
+                                            <td><?=$long; ?></td>
+                                            <td><?php if(strlen($mapsd) > 35){
+                                                echo substr($mapsd, 0, 35) . '...';
+                                            }else {
+                                                echo $mapsd;
+                                            } $mapsd; ?></td>
+                                            <td></td>
+                                        </tr>                                  
+<!-- The Modal -->
+<div class="modal" id="edit<?=$id_barang;?>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Stock Barang</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <form method="post">
+      <div class="modal-body">
+        <label>Nama Barang :</label>
+        <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control mb-2" required>
+        <label>Stock Beruntung :</label>
+        <input type="number" name="stock" value="<?= $stock;?>" class="form-control mb-2" required>
+        <label for="">Stock Gambut</label>
+        <input type="number" name="stock_g" class="form-control mb-2" value="<?=$stock_g; ?>" required>
+        <label> Harga :</label>
+        <input type="text" name="harga" value="<?= $harga;?>" class="form-control mb-2" required>
+        <input type="hidden" name="id_barang" value="<?=$id_barang;?>">
+        <button type="submit" class="btn btn-primary" name="editstock">Submit</button>
+      </div>
+</form>
+        </div>
+            </div>
+                </div>
+
+                                        <?php } ?>
                                     </tbody>
                                 </table>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-
-<script>
-      
-      $(function(){
-           $('.table').DataTable({
-              "processing": true,
-              "serverSide": true,
-              "ajax":{
-                       "url": "ajax/ajax_tps.php?action=dataTps",
-                       "dataType": "json",
-                       "type": "POST"
-                     },
-              "columns": [
-                  { "data": "no" },
-                  { "data": "tipe" },
-                  { "data": "nama_tps" },
-                  { "data": "kecamatan" },
-                  { "data": "alamat" },
-                  { "data": "kapasitas" },
-                  { "data": "ukuran_bangunan" },
-                  { "data": "jam_operasional" },
-                  { "data": "alat_angkutan" },
-                  { "data": "jam_angkutan" },
-                  { "data": "lattitude" },
-                  { "data": "longitude" },
-                  { "data": "maps_direction" }
-              ]  
-
-          });
-        });
-
-</script>
         <?php include './template/script.php'; ?>
     </body>
 </html>

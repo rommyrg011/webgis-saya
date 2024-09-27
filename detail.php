@@ -7,6 +7,7 @@
                                     $id =$_GET['id_tps'];
                                     $tampil = mysqli_query($koneksi, "SELECT * FROM tps WHERE id_tps='$id'");
                                     while($data = mysqli_fetch_array($tampil)){
+                                        $tipe = $data['tipe'];
                                         $namatp = $data['nama_tps'];
                                         $kec = $data['kecamatan'];
                                         $alamat = $data['alamat'];
@@ -60,9 +61,13 @@
   justify-content: center;
   margin-top: 20px;
 }
-.our-story, .link{
+.our-story,.link{
   font-size: 16px;
   font-weight: bold;
+ 
+}
+
+p {
   font-style: italic;
 }
 img {
@@ -86,6 +91,9 @@ img {
     <div class="our-story">
       <h4>Kecamatan</h4>
       <p><?=$kec ; ?></p>
+      <hr>
+      <h4>Tipe</h4>
+      <p><?=$tipe ; ?></p>
       <hr>
       <h4>TPS</h4>
       <p><?=$namatp ; ?></p>

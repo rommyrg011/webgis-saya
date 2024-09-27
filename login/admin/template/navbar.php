@@ -16,6 +16,6 @@
 </nav>
 <style>
     .navbar-brand {
-        font-size: 18px;
+        font-size: 23px;
     }
 </style>

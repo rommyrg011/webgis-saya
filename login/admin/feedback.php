@@ -60,11 +60,11 @@ if($_SESSION['status'] =="login"){
                         }
                         ?>
                         <?php
-                        //hapus admin
-if(isset($_POST['hapusadmin'])){
-    $ida = $_POST['id_user'];
+// hapus feedback
+if(isset($_POST['hapusfeed'])){
+    $ida = $_POST['id_feedback'];
     
-    $h = mysqli_query($koneksi, "delete from user where id_user='$ida'");
+    $h = mysqli_query($koneksi, "delete from feedback where id_feedback='$ida'");
     if($h){
         echo ' 
         <div class="alert alert-success">
@@ -102,7 +102,7 @@ if(isset($_POST['hapusadmin'])){
                                     $tampilfeed = mysqli_query($koneksi, "select * from feedback order by id_feedback DESC");
                                     $i= 1;
                                     while($data=mysqli_fetch_array($tampilfeed)){
-                                        // $idadmin = $data['id'];
+                                        // $idf = $data['id'];
                                         $nma = $data['nama_lengkap'];
                                         $tps = $data['tps'];
                                         $feed = $data['keterangan'];
@@ -115,19 +115,19 @@ if(isset($_POST['hapusadmin'])){
                                             <td><?=$feed; ?></td>
                                             <td>
                                             <button type="button" class="btn btn-sm btn-circle btn-danger btn-hapus">
-                                                    <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?=$idadmin;?>">
+                                                    <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?=$idf;?>">
                                                 </button></i>
                                             </td>
                                         </tr>
 <!-- kepunyaan button Delete -->                                       
 <!-- The Modal -->
-<div class="modal" id="delete<?=$idadmin;?>">
+<div class="modal" id="delete<?=$idf;?>">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Hapus Administrator</h4>
+        <h4 class="modal-title">Hapus Feedback</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -135,10 +135,10 @@ if(isset($_POST['hapusadmin'])){
       <form method="post">
       <div class="modal-body">
         Yakin anda ingin menghapus <?=$nma;?> ? 
-        <input type="hidden" name="id_user" value="<?=$idadmin;?>">
+        <input type="hidden" name="id_feedback" value="<?=$idf;?>">
         <br>
         <br>
-        <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
+        <button type="submit" class="btn btn-danger" name="hapusfeed">Hapus</button>
       </div>
 </form>
         </div>

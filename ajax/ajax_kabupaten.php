@@ -1,5 +1,5 @@
 <?php 
-require_once '../koneksi.php'; // Menghubungkan ke database
+include '../koneksi.php'; // Menghubungkan ke database
 
 // Memeriksa apakah action yang dikirim melalui GET adalah "dataKecamatan"
 if($_GET['action'] == "dataKecamatan"){

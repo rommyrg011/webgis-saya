@@ -1,8 +1,14 @@
+<style>
+    small {
+        font-size: 12px;
+    }
+</style>
+
 <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="./">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa fa-circle text-success fa-sm"></i></div>
-                                <small>Online</small>
+                                <small>Administrator</small>
                             </a>
                         
                             <a class="nav-link" href="./">
