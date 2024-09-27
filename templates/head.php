@@ -71,7 +71,11 @@
 
  
   <style type="text/css">
-    #mapid, #map { height: 100vh; }
+    #mapid, #map { 
+      height: 100vh;
+      border: 6px solid #808080; /* Border abu-abu dengan ketebalan 5px */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan bayangan halus untuk tampilan lebih baik */ 
+    }
    	.icon {
 	display: inline-block;
 	margin: 2px;

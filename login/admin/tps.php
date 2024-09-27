@@ -193,7 +193,8 @@ if(isset($_POST['editstock'])){
                   { "data": "jam_angkutan" },
                   { "data": "lattitude" },
                   { "data": "longitude" },
-                  { "data": "maps_direction" }
+                  { "data": "maps_direction" },
+                  { "data": "aksi" }
               ]  
 
           });
