@@ -15,6 +15,7 @@ var json_TPS_4 = {
     while($a = mysqli_fetch_array($hasil)){
         $id = $a['id_tps'];
         $nama = $a['nama_tps'];
+        $tipe= $a['tipe'];
         $al = $a['alamat'];
         $op = $a['jam_operasional'];
         $im = $a['image'];
@@ -24,6 +25,7 @@ var json_TPS_4 = {
         // Escape karakter untuk JSON, fungsinya addslashes untuk menambahkan backslash
         $id = addslashes($id);
         $nama = addslashes($nama);
+        $tipe = addslashes($tipe);
         $al = addslashes($al);
         $op = addslashes($op);
 
@@ -45,6 +47,7 @@ var json_TPS_4 = {
       properties: {
         id: "<?= $id; ?>",
         nama_tps: "<?= $nama; ?>",
+        tipe: "<?= $tipe; ?>",
         alamat: "<?= $al; ?>",
         operasi: "<?= $op; ?>",
         detail: "<?= $detail; ?>"

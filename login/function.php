@@ -119,3 +119,63 @@ if(in_array($ekstensi, $allowed_extension) === true){
     </script>';
     }
 }
+//edit tps
+if(isset($_POST['edittps'])){
+    $nmt = $_POST['nama_tps'];
+    $kecamatan = $_POST['kecamatan'];
+    $alamat = $_POST['alamat'];
+    $kap = $_POST['kapasitas'];
+    $uk = $_POST['ukuran_bangunan'];
+    $jam = $_POST['jam_operasional'];
+    $jam_a = $_POST['jam_angkutan'];
+    $alat = $_POST['alat_angkutan'];
+    $maps = $_POST['maps_direction'];
+    $lat = $_POST['lattitude'];
+    $lng = $_POST['longitude'];
+    $id_t = $_POST['id_tps'];
+
+     //soal gambar
+  $allowed_extension = array('png','jpg'); // tipe gambar yang di perbolehkan upload
+  $nama = $_FILES['file']['name']; //ngambil nama file gambar
+  $dot = explode('.',$nama);
+  $ekstensi = strtolower(end($dot)); // mengambil ektensinya
+  $ukuran = $_FILES['file']['size']; //mengambil size gambar
+  $file_tmp = $_FILES['file']['tmp_name'];//tmp=temporary, mengambil lokasi filenya
+
+  //penamaan file -> enkripsi
+  $image = md5(uniqid($nama,true) . time()).'.'.$ekstensi; //menggabungkan nama file yang di enskripsi dengan ekstensinya
+    
+//proses upload gambar
+if(in_array($ekstensi, $allowed_extension) === true){
+  //validasi ukuran filennya
+  if($ukuran < 1000000){
+      move_uploaded_file($file_tmp, '../../images/'.$image);
+
+      $edittps = mysqli_query($koneksi, "update tps set nama_tps='$nmt', kecamatan='$kecamatan', alamat='$alamat', kapasitas='$kap', ukuran_bangunan='$uk', jam_operasional='$jam', jam_angkutan='$jam_a', alat_angkutan='$alat', lattitude='$lat', longitude='$lng', maps_direction='$maps', image='$image'
+      where id_tps='$id_t'");
+    if($edittps){
+        $_SESSION['notif'] = "Berhasil Ditambahkan";
+		header('location: tps');
+    }else {
+		echo '
+		<script>alert("Gagal");
+		window.location.href="tps"
+		</script>';
+	}
+} else {
+  //jika ukuran filenya lebih dari 8 mb
+  echo'
+  <script> alert("Ukuran Gambar terlalu besar");
+  window.location.href="tps";
+  </script>';
+}
+
+} else {
+//jika gambar tidak png /jpg
+    echo'
+    <script> alert("File Harus png atau jpg");
+    window.location.href="tps";
+    </script>';
+    }
+}
+

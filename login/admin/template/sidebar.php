@@ -8,7 +8,7 @@
                         <div class="nav">
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa fa-circle text-success fa-sm"></i></div>
-                                <small>Administrator</small>
+                                <small><?php echo $_SESSION['nama_lengkap']; ?></small>
                             </a>
                         
                             <a class="nav-link" href="./">

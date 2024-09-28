@@ -39,6 +39,7 @@ while($data=mysqli_fetch_array($tampiltps)){
     $long = $data['longitude'];
     $mapsd = $data['maps_direction'];
     $tipe = $data['tipe'];
+    $id_tps = $data['id_tps'];
 
     $gambar = $data['image'];// ambil gambar dari folder
     if($gambar==null){
@@ -72,6 +73,7 @@ while($data=mysqli_fetch_array($tampiltps)){
     <div class="container mt-3">
     <form method="post" enctype="multipart/form-data" autocomplete="off">
         <div class="mb-3 mt-3">
+        <input type="hidden" name="id_tps" value="<?=$id_tps;?>">
         <label>Nama Kecamatan :</label>
         <input type="text" class="form-control" name="kecamatan" placeholder="Nama Kecamatan" value="<?=$kec;?>" style="text-transform: uppercase;" required>
         </div>
@@ -132,14 +134,18 @@ while($data=mysqli_fetch_array($tampiltps)){
         <div class="mb-3">
         <label>Maps Direction:</label>
         <!-- <p>Catatan ! Jika linknya terlalu panjang bisa di perpendek melalui Short Url</p> -->
-        <input type="text" class="form-control" name="maps_direction" placeholder="Maps Direction" value="<?=$mapsd;?>" required>
+        <input type="text" class="form-control" name="maps_direction" placeholder="Maps Direction" value="<?php if(strlen($mapsd) > 35){
+                                                echo substr($mapsd, 0, 35) . '...';
+                                            }else {
+                                                echo $mapsd;
+                                            } $mapsd; ?>" required>
         </div>
         <label class="mb-2">Foto TPS:</label>
         <br>
         <?=$img;?>
         <input type="file" name="file" class="form-control mt-3">
         </div>
-        <button type="submit" class="btn btn-primary" name="tambahtps">Simpan</button>
+        <button type="submit" class="btn btn-primary" name="edittps">Simpan</button>
   </form>
   <br>
 </div>

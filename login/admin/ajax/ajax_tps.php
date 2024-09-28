@@ -84,7 +84,7 @@ if($_GET['action'] == "dataTps"){
 			}
 			$nestedData['maps_direction'] = $maps_direction;
 			$nestedData['aksi'] = "<a href='tps_edit?id=" . $r['id_tps'] . "' class='btn btn-warning btn-sm'>Ubah</a>&nbsp;
-                       <button onclick='deleteTps(" . $r['id_tps'] . ")' class='btn btn-danger btn-sm'>Hapus</button>";
+                       <a href='tps_hapus?id=" . $r['id_tps'] . "' class='btn btn-danger btn-sm' onclick='return confirm(".addslashes('Yakin?') .")'>Hapus</a>&nbsp";
 
 
 			$data[] = $nestedData;

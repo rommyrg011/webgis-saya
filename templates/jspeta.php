@@ -251,6 +251,10 @@
                         <td>' + (feature.properties['nama_tps'] !== null ? autolinker.link(feature.properties['nama_tps'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">Tipe :</th>\
+                        <td>' + (feature.properties['tipe'] !== null ? autolinker.link(feature.properties['tipe'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Lokasi :</th>\
                         <td>' + (feature.properties['alamat'] !== null ? autolinker.link(feature.properties['alamat'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -318,7 +322,7 @@
         .title += 'Search for a place';
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<img src="markers/../images/trash.png" style="width:20px; height:auto;" /> LOKASI TPS', layer: cluster_TPS_4},
+            {label: '<img src="markers/../images/trash.png" style="width:20px;height:auto;" /> LOKASI TPS', layer: cluster_TPS_4},
             {label: 'KECAMATAN BANJARMASIN<br /><table><tr><td style="text-align: center;"><img src="legend/KECAMATANBANJARMASIN_3_BANJARMASINBARAT0.png" /></td><td>BANJARMASIN BARAT</td></tr><tr><td style="text-align: center;"><img src="legend/KECAMATANBANJARMASIN_3_BANJARMASINSELATAN1.png" /></td><td>BANJARMASIN SELATAN</td></tr><tr><td style="text-align: center;"><img src="legend/KECAMATANBANJARMASIN_3_BANJARMASINTENGAH2.png" /></td><td>BANJARMASIN TENGAH</td></tr><tr><td style="text-align: center;"><img src="legend/KECAMATANBANJARMASIN_3_BANJARMASINTIMUR3.png" /></td><td>BANJARMASIN TIMUR</td></tr><tr><td style="text-align: center;"><img src="legend/KECAMATANBANJARMASIN_3_BANJARMASINUTARA4.png" /></td><td>BANJARMASIN UTARA</td></tr></table>', layer: layer_KECAMATANBANJARMASIN_3},
             {label: "OPENSTREETMAP", layer: layer_OPENSTREETMAP_2},
             {label: "GOOGLE MAPS", layer: layer_GOOGLEMAPS_1},
