@@ -25,20 +25,6 @@ if($_SESSION['status'] =="login"){
         color: blue;
     }
 
-    /* CSS untuk memperkecil ukuran huruf di tabel */
-    table.table {
-        font-size: 14px; /* Atur ukuran font yang lebih kecil */
-    }
-
-    /* Jika ingin memperkecil ukuran font header tabel juga */
-    table.table th {
-        font-size: 14px;
-    }
-
-    /* Memperkecil ukuran font sel-sel tabel */
-    table.table td {
-        font-size: 14px;
-    }
 </style>
 
 </styl>
@@ -85,45 +71,6 @@ if($_SESSION['status'] =="login"){
                         <?php
                         unset($_SESSION['notif']);
                         }
-
-//edit stock barang
-if(isset($_POST['editstock'])){
-    $idbr = $_POST['id_barang'];
-    $nama = $_POST['namabarang'];
-    $stt = $_POST['stock'];
-    $stg = $_POST['stock_g'];
-    $har = $_POST['harga'];
-  
-    $updatestockbarang = mysqli_query($koneksi, "update stockbarang set namabarang='$nama', stock='$stt', stock_g='$stg', harga='$har' where id_barang='$idbr'");
-    if($updatestockbarang){
-        echo ' 
-        <div class="alert alert-success">
-        Berhasil di edit
-    </div>';
-    } else {
-      echo '
-          <script>alert("Gagal");
-          window.location.href="stock.php"
-          </script>';
-    }
-  }
-
-  if(isset($_POST['hapusstock'])){
-    $ida = $_POST['id_barang'];
-    
-    $h = mysqli_query($koneksi, "delete from stockbarang where id_barang='$ida'");
-    if($h){
-        echo ' 
-        <div class="alert alert-success">
-        Berhasil Dihapus
-    </div>';
-		} else {
-			echo '
-			<script>alert("Gagal");
-			window.location.href="stock.php"
-			</script>';
-        }
-    }
                         ?>
 
                         
@@ -176,7 +123,7 @@ if(isset($_POST['editstock'])){
               "processing": true,
               "serverSide": true,
               "ajax":{
-                       "url": "ajax/ajax_tps.php?action=dataTps",
+                       "url": "ajax/ajax_tps?action=dataTps",
                        "dataType": "json",
                        "type": "POST"
                      },

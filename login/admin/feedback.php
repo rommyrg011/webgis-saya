@@ -59,26 +59,6 @@ if($_SESSION['status'] =="login"){
                         unset($_SESSION['notif']);
                         }
                         ?>
-                        <?php
-// hapus feedback
-if(isset($_POST['hapusfeed'])){
-    $ida = $_POST['id_feedback'];
-    
-    $h = mysqli_query($koneksi, "delete from feedback where id_feedback='$ida'");
-    if($h){
-        echo ' 
-        <div class="alert alert-success">
-        Berhasil
-    </div>';
-		} else {
-			echo '
-			<script>alert("Gagal");
-			window.location.href="feedback"
-			</script>';
-        }
-    }
-                       
-            ?>
                         
                         <div class="card mb-4">
                             <div class="card-header">
@@ -86,7 +66,8 @@ if(isset($_POST['hapusfeed'])){
                                 Feedback
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div class="table-responsive">
+                            <table class="table table-striped table-sm table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -98,61 +79,43 @@ if(isset($_POST['hapusfeed'])){
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                    $tampilfeed = mysqli_query($koneksi, "select * from feedback order by id_feedback DESC");
-                                    $i= 1;
-                                    while($data=mysqli_fetch_array($tampilfeed)){
-                                        // $idf = $data['id'];
-                                        $nma = $data['nama_lengkap'];
-                                        $tps = $data['tps'];
-                                        $feed = $data['keterangan'];
-                                        $idf = $data['id_feedback'];
-                                        ?>
-                                        <tr>
-                                            <td><?=$i++; ?></td>
-                                            <td><?=$nma; ?></td>
-                                            <td><?=$tps; ?></td>
-                                            <td><?=$feed; ?></td>
-                                            <td>
-                                            <button type="button" class="btn btn-sm btn-circle btn-danger btn-hapus">
-                                                    <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?=$idf;?>">
-                                                </button></i>
-                                            </td>
-                                        </tr>
-<!-- kepunyaan button Delete -->                                       
-<!-- The Modal -->
-<div class="modal" id="delete<?=$idf;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Hapus Feedback</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-        Yakin anda ingin menghapus <?=$nma;?> ? 
-        <input type="hidden" name="id_feedback" value="<?=$idf;?>">
-        <br>
-        <br>
-        <button type="submit" class="btn btn-danger" name="hapusfeed">Hapus</button>
-      </div>
-</form>
-        </div>
-            </div>  
-                </div>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+      
+      $(function(){
+           $('.table').DataTable({
+              "processing": true,
+              "serverSide": true,
+              "ajax":{
+                       "url": "ajax/ajax_feedback?action=dataFeedback",
+                       "dataType": "json",
+                       "type": "POST"
+                     },
+              "columns": [
+                  { "data": "no" },
+                  { "data": "nama_lengkap" },
+                  { "data": "tps" },
+                  { "data": "keterangan" },
+                  { "data": "aksi" }
+              ]  
+
+          });
+        });
+
+</script>
         <?php include './template/script.php'; ?>
     </body>
 </html>

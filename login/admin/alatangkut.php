@@ -88,66 +88,52 @@ if(isset($_POST['hapusalat'])){
                                 Alat Angkut
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div class="table-responsive">
+                            <table class="table table-striped table-sm table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama lengkap</th>
+                                            <th>Nama Alat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                    $tampilalat = mysqli_query($koneksi, "select * from alat order by id_alat DESC");
-                                    $i= 1;
-                                    while($data=mysqli_fetch_array($tampilalat)){
-                                        $nma_alat = $data['nama_alat'];
-                                        $id_alat = $data['id_alat'];
-                                        ?>
-                                        <tr>
-                                            <td><?=$i++; ?></td>
-                                            <td><?=$nma_alat; ?></td>
-                                            <td>
-                                            <button type="button" class="btn btn-sm btn-circle btn-danger btn-hapus">
-                                                    <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?=$id_alat;?>">
-                                                </button></i>
-                                            </td>
-                                        </tr>
-<!-- kepunyaan button Delete -->                                       
-<!-- The Modal -->
-<div class="modal" id="delete<?=$id_alat;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Hapus Alat Angkut</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-        Yakin anda ingin menghapus <?=$nma_alat;?> ? 
-        <input type="hidden" name="id_alat" value="<?=$id_alat;?>">
-        <br>
-        <br>
-        <button type="submit" class="btn btn-danger" name="hapusalat">Hapus</button>
-      </div>
-</form>
-        </div>
-            </div>  
-                </div>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+      
+      $(function(){
+           $('.table').DataTable({
+              "processing": true,
+              "serverSide": true,
+              "ajax":{
+                       "url": "ajax/ajax_alatangkut?action=dataAlatAngkut",
+                       "dataType": "json",
+                       "type": "POST"
+                     },
+              "columns": [
+                  { "data": "no" },
+                  { "data": "nama_alat" },
+                  { "data": "aksi" }
+              ]  
+
+          });
+        });
+
+</script>
         <?php include './template/script.php'; ?>
     </body>
 </html>

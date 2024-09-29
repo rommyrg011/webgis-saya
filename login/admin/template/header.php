@@ -27,5 +27,20 @@
             label {
         font-weight: bold;
         }
+
+        /* CSS untuk memperkecil ukuran huruf di tabel */
+    table.table {
+        font-size: 14px; /* Atur ukuran font yang lebih kecil */
+    }
+
+    /* Jika ingin memperkecil ukuran font header tabel juga */
+    table.table th {
+        font-size: 14px;
+    }
+
+    /* Memperkecil ukuran font sel-sel tabel */
+    table.table td {
+        font-size: 14px;
+    }
         </style>
     </head>

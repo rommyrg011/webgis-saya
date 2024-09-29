@@ -88,70 +88,54 @@ if(isset($_POST['hapusadmin'])){
                                 Administrator
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div class="table-responsive">
+                            <table class="table table-striped table-sm table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama lengkap</th>
+                                            <th>Nama Lengkap</th>
                                             <th>Username</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                    $tampiladmin = mysqli_query($koneksi, "select * from user where level='admin' order by id_user DESC");
-                                    $i= 1;
-                                    while($data=mysqli_fetch_array($tampiladmin)){
-                                        // $idadmin = $data['id'];
-                                        $nma = $data['nama_lengkap'];
-                                        $user = $data['username'];
-                                        $idadmin = $data['id_user'];
-                                        ?>
-                                        <tr>
-                                            <td><?=$i++; ?></td>
-                                            <td><?=$nma; ?></td>
-                                            <td><?=$user; ?></td>
-                                            <td>
-                                            <button type="button" class="btn btn-sm btn-circle btn-danger btn-hapus">
-                                                    <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?=$idadmin;?>">
-                                                </button></i>
-                                            </td>
-                                        </tr>
-<!-- kepunyaan button Delete -->                                       
-<!-- The Modal -->
-<div class="modal" id="delete<?=$idadmin;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Hapus Administrator</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-        Yakin anda ingin menghapus <?=$nma;?> ? 
-        <input type="hidden" name="id_user" value="<?=$idadmin;?>">
-        <br>
-        <br>
-        <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
-      </div>
-</form>
-        </div>
-            </div>  
-                </div>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+      
+      $(function(){
+           $('.table').DataTable({
+              "processing": true,
+              "serverSide": true,
+              "ajax":{
+                       "url": "ajax/ajax_admin?action=dataAdmin",
+                       "dataType": "json",
+                       "type": "POST"
+                     },
+              "columns": [
+                  { "data": "no" },
+                  { "data": "nama_lengkap" },
+                  { "data": "username" },
+                  { "data": "aksi" }
+              ]  
+
+          });
+        });
+
+</script>
         <?php include './template/script.php'; ?>
     </body>
 </html>

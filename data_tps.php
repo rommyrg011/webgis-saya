@@ -185,7 +185,6 @@
   z-index: 700;
 }
 
-
     </style>
   <body class="about-page">
 <?php include 'templates/navbar.php'; ?>
@@ -214,8 +213,9 @@
        <hr width="100%" noshade size="10%">
        <br>
        <h2>Daftar Kabupaten / Kota</h2>
+       <br>
        <div class="table-responsive">
-       <table id="example" class="table table-bordered table-sm" style="width:100%" data-bs-theme="dark">
+       <table class="table table-bordered table-sm" style="width:100%; margin: 0 auto;" data-bs-theme="dark">
        <thead>
                                         <tr>
                                             <th>No</th>
@@ -226,40 +226,58 @@
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                    $tampiltps = mysqli_query($koneksi, "select * from tps order by id_tps DESC");
-                                    $i= 1;
-                                    while($data=mysqli_fetch_array($tampiltps)){
-                                        $idtps = $data['id_tps'];
-                                        $kec = $data['kecamatan'];
-                                        $namatps = $data['nama_tps'];
-                                        $alamat = $data['alamat'];
-                                        $kapasitas = $data['kapasitas'];
-                                        $ukuran = $data['ukuran_bangunan'];
-                                        $jamop = $data['jam_operasional'];
-                                        $jaman = $data['jam_angkutan'];
-                                        $lat = $data['lattitude'];
-                                        $long = $data['longitude'];
-                                        $mapsd = $data['maps_direction'];
-                                        
-                                                                            //cek gambar ada atau tidak ada
-                                        $gambar = $data['image'];// ambil gambar dari folder
-                                            if($gambar==null){
-                                              //Jika tidak ada gambar
-                                              $img = 'No Photo';
-                                              } else {
-                                              //jika ada gambar
-                                              $img = '<img src="images/'.$gambar.'" class="zoomable">';
-                                              }
-                                        ?>
+                                  
                                         <tr>
-                                            <td><?=$i++; ?></td>
-                                            <td><?=$kec; ?></td>
-                                            <td><?=$namatps; ?></td>
-                                            
+                                            <td>1</td>
+                                            <td>TPS Banjarmasin Selatan</td>
+                                            <td>10</td>
                                         </tr> 
-                                        <?php } ?>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>TPS Banjarmasin Timur</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>3</td>
+                                            <td>TPS Banjarmasin Barat</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>4</td>
+                                            <td>TPS Banjarmasin Utara</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>5</td>
+                                            <td>TPS Banjarmasin Tengah</td>
+                                            <td>10</td>
+                                        </tr> 
 
+                                        <tr>
+                                            <td>6</td>
+                                            <td>TPST3R Banjarmasin Selatan</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>7</td>
+                                            <td>TPST3R TPS Banjarmasin Timur</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>8</td>
+                                            <td>TPST3R TPS Banjarmasin Barat</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>9</td>
+                                            <td>TPST3R TPS Banjarmasin Utara</td>
+                                            <td>10</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>10</td>
+                                            <td>TPST3R TPS Banjarmasin Tengah</td>
+                                            <td>10</td>
+                                        </tr> 
 
         </tbody>
     </table>

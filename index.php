@@ -214,35 +214,46 @@ window.onload = function() {
       </section>
 
        <!-- Stats Counter Section -->
-    <section id="stats-counter" class="stats-counter section">
+       <section id="stats-counter" class="stats-counter section">
 
 <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="row gy-4 justify-content-center">
 
-  <div class="row gy-4">
-
-  <div class="col-xl-6 col-md-6">
-    <div class="card bg-success text-white mb-4">
-      <div class="card-body"><center><h1>KECAMATAN</h1> <h1 align="center"><a href="kabupaten.php"><?=$h2; ?></a></h1></center></div>
-        <div class="card d-flex align-items-center justify-content-between">
+    <div class="col-xl-6 col-md-6 col-sm-12">
+      <div class="card text-white mb-4" style="background-image: url('images/home.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
+        <div class="card-body">
+          <center>
+            <h1 style="font-size: 30px; margin-top: 25px;">KECAMATAN</h1>
+            <h1 align="center" style="font-size: 25px;">
+              <a href="kabupaten.php" style="color: yellow; text-decoration: none;">
+                <?=$h2; ?>
+              </a>
+            </h1>
+          </center>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-xl-6 col-md-6">
-    <div class="card bg-primary text-white mb-4">
-      <div class="card-body"><center><h1>TPS</h1><h1 align="center"><a href="data_tps.php"><?=$h4; ?></a></h1></center></div>
-        <div class="card d-flex align-items-center justify-content-between">
+    <div class="col-xl-6 col-md-6 col-sm-12">
+      <div class="card text-white mb-4" style="background-image: url('images/home.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
+        <div class="card-body">
+          <center>
+            <h1 style="font-size: 30px; margin-top: 25px;">SEBARAN TPS</h1>
+            <h1 align="center" style="font-size: 25px;">
+              <a href="kabupaten.php" style="color: yellow; text-decoration: none;">
+                <?=$h4; ?>
+              </a>
+            </h1>
+          </center>
+        </div>
       </div>
     </div>
-  </div>
-
-    
 
   </div>
-
 </div>
 
-</section><!-- /Stats Counter Section -->
+</section>
+<!-- /Stats Counter Section -->
 
 <?php include 'templates/footer.php'; ?>
 
