@@ -1,7 +1,7 @@
 <?php include 'templates/head.php'; ?>
 <?php include 'koneksi.php'; ?>
 
-    <style>
+<style>
 
 .col9 {
   height: 100% !important;
@@ -184,11 +184,46 @@
 .leaflet-popup-pane {
   z-index: 700;
 }
+</style>
+<?php
+// banjarmasin selatan
+$tps = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPS' and kecamatan='BANJARMASIN SELATAN'");
+$a = mysqli_num_rows($tps);
 
-    </style>
+$TPST3R = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPST3R' and kecamatan='BANJARMASIN SELATAN'");
+$b = mysqli_num_rows($TPST3R);
+
+// banjarmasin timur
+$tps = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPS' and kecamatan='BANJARMASIN TIMUR'");
+$c = mysqli_num_rows($tps);
+
+$TPST3R = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPST3R' and kecamatan='BANJARMASIN TIMUR'");
+$d = mysqli_num_rows($TPST3R);
+
+// banjarmasin barat
+$tps = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPS' and kecamatan='BANJARMASIN BARAT'");
+$e = mysqli_num_rows($tps);
+
+$TPST3R = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPST3R' and kecamatan='BANJARMASIN BARAT'");
+$f = mysqli_num_rows($TPST3R);
+
+// banjarmasin utara
+$tps = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPS' and kecamatan='BANJARMASIN UTARA'");
+$g = mysqli_num_rows($tps);
+
+$TPST3R = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPST3R' and kecamatan='BANJARMASIN UTARA'");
+$h = mysqli_num_rows($TPST3R);
+
+// banjarmasin tengah
+$tps = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPS' and kecamatan='BANJARMASIN TENGAH'");
+$i = mysqli_num_rows($tps);
+
+$TPST3R = mysqli_query($koneksi, "SELECT * FROM tps where tipe='TPST3R' and kecamatan='BANJARMASIN TENGAH'");
+$j = mysqli_num_rows($TPST3R);
+
+?>
   <body class="about-page">
 <?php include 'templates/navbar.php'; ?>
-
     <main class="main">
       <!-- Page Title -->
       <div
@@ -212,7 +247,7 @@
        <br> 
        <hr width="100%" noshade size="10%">
        <br>
-       <h2>Daftar Kabupaten / Kota</h2>
+       <h2>Jumlah TPS</h2>
        <br>
        <div class="table-responsive">
        <table class="table table-bordered table-sm" style="width:100%; margin: 0 auto;" data-bs-theme="dark">
@@ -230,53 +265,53 @@
                                         <tr>
                                             <td>1</td>
                                             <td>TPS Banjarmasin Selatan</td>
-                                            <td>10</td>
+                                            <td><?=$a; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>2</td>
                                             <td>TPS Banjarmasin Timur</td>
-                                            <td>10</td>
+                                            <td><?=$c; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>3</td>
                                             <td>TPS Banjarmasin Barat</td>
-                                            <td>10</td>
+                                            <td><?=$e; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>4</td>
                                             <td>TPS Banjarmasin Utara</td>
-                                            <td>10</td>
+                                            <td><?=$g; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>5</td>
                                             <td>TPS Banjarmasin Tengah</td>
-                                            <td>10</td>
+                                            <td><?=$i; ?></td>
                                         </tr> 
 
                                         <tr>
                                             <td>6</td>
                                             <td>TPST3R Banjarmasin Selatan</td>
-                                            <td>10</td>
+                                            <td><?=$b;?></td>
                                         </tr> 
                                         <tr>
                                             <td>7</td>
                                             <td>TPST3R TPS Banjarmasin Timur</td>
-                                            <td>10</td>
+                                            <td><?=$d; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>8</td>
                                             <td>TPST3R TPS Banjarmasin Barat</td>
-                                            <td>10</td>
+                                            <td><?=$f; ?></td>
                                         </tr> 
                                         <tr>
                                             <td>9</td>
                                             <td>TPST3R TPS Banjarmasin Utara</td>
-                                            <td>10</td>
+                                            <td><?=$h;?></td>
                                         </tr> 
                                         <tr>
                                             <td>10</td>
                                             <td>TPST3R TPS Banjarmasin Tengah</td>
-                                            <td>10</td>
+                                            <td><?=$j; ?></td>
                                         </tr> 
 
         </tbody>

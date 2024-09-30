@@ -61,8 +61,32 @@ if(isset($_POST['tambahkecamatan'])){
 	}
 }
 
+//edit kecamatan
+if(isset($_POST['editkecamatan'])){
+  $nama_kec = $_POST['nama_kec'];
+  $luas_w = $_POST['luas_w'];
+  $penduduk = $_POST['penduduk'];
+  $kepadatan = $_POST['kepadatan'];
+  $lattitude = $_POST['lattitude'];
+  $longitude = $_POST['longitude'];
+  $id_k = $_POST['id_kec'];
+
+  $editkec = mysqli_query($koneksi, "update kecamatan set nama_kec = '$nama_kec', luas_w = '$luas_w', penduduk = '$penduduk',
+  kepadatan = '$kepadatan', lattitude = '$lattitude', longitude ='$longitude' where id_kec = '$id_k'");
+    if($editkec){
+      $_SESSION['notif'] = "Berhasil Ditambahkan";
+  header('location: kecamatan');
+  }  else {
+  echo '
+  <script>alert("Gagal");
+  window.location.href="kecamatan"
+  </script>';
+  }
+}
+
 //tambah tps
 if(isset($_POST['tambahtps'])){
+    $tipe = $_POST['tipe'];
     $nmt = $_POST['nama_tps'];
     $kecamatan = $_POST['kecamatan'];
     $alamat = $_POST['alamat'];
@@ -92,8 +116,8 @@ if(in_array($ekstensi, $allowed_extension) === true){
   if($ukuran < 1000000){
       move_uploaded_file($file_tmp, '../../images/'.$image);
 
-    $tambahtps = mysqli_query($koneksi, "insert into tps (nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, jam_angkutan, alat_angkutan, lattitude, longitude, maps_direction, image) values 
-    ('$nmt', '$kecamatan', '$alamat', '$kap', '$uk', '$jam', '$jam_a', '$alat', '$lat', '$lng', '$maps', '$image')");
+    $tambahtps = mysqli_query($koneksi, "insert into tps (tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, jam_angkutan, alat_angkutan, lattitude, longitude, maps_direction, image) values 
+    ('$tipe' ,'$nmt', '$kecamatan', '$alamat', '$kap', '$uk', '$jam', '$jam_a', '$alat', '$lat', '$lng', '$maps', '$image')");
     if($tambahtps){
         $_SESSION['notif'] = "Berhasil Ditambahkan";
 		header('location: tps');

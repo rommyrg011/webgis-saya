@@ -94,21 +94,22 @@
 
 	<?php
 	$kecamatan = [
-		"banjarmasin_barat"=>"#ff0000",
-		 "banjarmasin_selatan"=>"#00ff00", 
-		 "banjarmasin_tengah"=>"#343939", 
-		 "banjarmasin_timur"=>"#880088",
-		 "banjarmasin_utara"=>"#ff9900"
+		"banjarmasin_barat"=>"rgba(197,221,13,0.608)",
+		 "banjarmasin_selatan"=>"rgba(143,227,236,0.608)", 
+		 "banjarmasin_tengah"=>"rgba(240,139,125,0.608)", 
+		 "banjarmasin_timur"=>"rgba(222,125,212,0.608)",
+		 "banjarmasin_utara"=>"rgba(51,231,69,0.608)"
 		];
 		foreach ($kecamatan as $key => $value) {
-			?>
-			// styling warna perkategori
-			var myStyle<?=$key?> = {
-			    "color": "<?=$value?>",
-			    "weight": 1.2,
-			    "opacity": 1,
-				"fillOpacity" : 0.5 // untuk mengatur transparansinya
-			};
+	?>
+	// styling warna perkategori
+	var myStyle<?=$key?> = {
+        "color": "#000000", // warna border
+        "weight": 1, // ketebalan border
+        "opacity": 0.4, // transparansi border
+        "fillColor": "<?=$value?>", // mempertahankan warna kecamatan
+        "fillOpacity": 1   // transparansi warna kecamatan
+    };
 
 			<?php
 			$arrayKec[]='{
@@ -120,7 +121,7 @@
 	?>
 	// membuat layer group
 	var overLayers = [{
-		group: "Kecamatan Banjarmasin",
+		group: "KECAMATAN",
 		layers: [
 			<?=implode(',', $arrayKec);?>
 		]

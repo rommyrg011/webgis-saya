@@ -60,48 +60,6 @@ if($_SESSION['status'] =="login"){
                         <?php
                         unset($_SESSION['notif']);
                         }
-
-//edit kecamatan
-if(isset($_POST['editkecamatan'])){
-    $nama_kec = $_POST['nama_kec'];
-    $luas_w = $_POST['luas_w'];
-    $penduduk = $_POST['penduduk'];
-    $kepadatan = $_POST['kepadatan'];
-    $lattitude = $_POST['lattitude'];
-    $longitude = $_POST['longitude'];
-    $id_k = $_POST['id_kec'];
-  
-    $editkec = mysqli_query($koneksi, "update kecamatan set nama_kec = '$nama_kec', luas_w = '$luas_w', penduduk = '$penduduk',
-    kepadatan = '$kepadatan', lattitude = '$lattitude', longitude ='$longitude' where id_kec = '$id_k'");
-    if($editkec){
-        echo ' 
-        <div class="alert alert-success">
-        Berhasil di edit
-    </div>';
-    } else {
-      echo '
-          <script>alert("Gagal");
-          window.location.href="kecamatan"
-          </script>';
-    }
-  }
-
-  if(isset($_POST['hapuskecamatan'])){
-    $idk = $_POST['id_kec'];
-    
-    $h = mysqli_query($koneksi, "delete from kecamatan where id_kec='$idk'");
-    if($h){
-        echo ' 
-        <div class="alert alert-success">
-        Berhasil Dihapus
-    </div>';
-		} else {
-			echo '
-			<script>alert("Gagal");
-			window.location.href="kecamatan"
-			</script>';
-        }
-    }
                         ?>
 
                         
@@ -111,11 +69,12 @@ if(isset($_POST['editkecamatan'])){
                                 Kecamatan
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div class="table-responsive">
+                            <table class="table table-striped table-sm table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Kecamatan</th>
+                                            <th>Kecamatan</th>
                                             <th>Luas Wilayah</th>
                                             <th>Penduduk</th>
                                             <th>Kepadatan</th>
@@ -126,109 +85,46 @@ if(isset($_POST['editkecamatan'])){
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                    $tampilkec = mysqli_query($koneksi, "select * from kecamatan order by id_kec DESC");
-                                    $i= 1;
-                                    while($data=mysqli_fetch_array($tampilkec)){
-                                        $nama_kec = $data['nama_kec'];
-                                        $luas_kec = $data['luas_w'];
-                                        $penduduk = $data['penduduk'];
-                                        $kepadatan = $data['kepadatan'];
-                                        $lattitude = $data['lattitude'];
-                                        $longitude = $data['longitude'];
-                                        $id_ke = $data['id_kec'];
-                                    
-                                        ?>
-                                        <tr>
-                                            <td><?=$i++; ?></td>
-                                            <td><?=$nama_kec; ?></td>
-                                            <td><?=$luas_kec; ?></td>
-                                            <td><?=$penduduk; ?></td>
-                                            <td><?=$kepadatan;?></td>
-                                            <td><?=$lattitude; ?></td>
-                                            <td><?=$longitude; ?></td>
-                                            <td><button type="button" class="btn btn-sm btn-circle btn-warning">
-                                                        <i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editk<?= $id_ke; ?>">
-                                                    </button></i>
-                                                    <button type="button" class="btn btn-sm btn-circle btn-danger btn-hapus">
-                                                        <i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#delete<?= $id_ke; ?>">
-                                                    </button></i></td>
-                                        </tr>                                  
-<!-- The Modal -->
-<div class="modal" id="editk<?= $id_ke;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Edit Kecamatan</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-        <input type="hidden" name="id_kec" value="<?=$id_ke;?>"> 
-        <label>Nama Kecamatan :</label>
-        <input type="text" name="nama_kec" value="<?=$nama_kec;?>" class="form-control mb-2" required>
-
-        <label>Luas Wilayah :</label>
-        <input type="text" name="luas_w" value="<?= $luas_kec;?>" class="form-control mb-2" required>
-
-
-        <label> Penduduk :</label>
-        <input type="text" name="penduduk" value="<?= $penduduk;?>" class="form-control mb-2" required>
-
-        <label> Kepadatan :</label>
-        <input type="text" name="kepadatan" value="<?= $kepadatan;?>" class="form-control mb-2" required>
-
-        <label> Lattitude :</label>
-        <input type="text" name="lattitude" value="<?= $lattitude;?>" class="form-control mb-2" required>
-
-        <label> Longitude :</label>
-        <input type="text" name="longitude" value="<?= $longitude;?>" class="form-control mb-2" required>
-        
-        <button type="submit" class="btn btn-primary" name="editkecamatan">Submit</button>
-      </div>
-</form>
-        </div>
-            </div>
-                </div>
-
-<!-- The Modal -->
-<div class="modal" id="delete<?=$id_ke;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Hapus Kecamatan</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <form method="post">
-      <div class="modal-body">
-        Yakin anda ingin menghapus <?=$nama_kec;?> ? 
-        <input type="hidden" name="id_kec" value="<?=$id_ke;?>">
-        <br>
-        <br>
-        <button type="submit" class="btn btn-danger" name="hapuskecamatan">Hapus</button>
-      </div>
-</form>
-        </div>
-            </div>  
-                </div>
-
-                                        <?php } ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+      
+      $(function(){
+           $('.table').DataTable({
+              "processing": true,
+              "serverSide": true,
+              "ajax":{
+                       "url": "ajax/ajax_kecamatan?action=dataKecamatan",
+                       "dataType": "json",
+                       "type": "POST"
+                     },
+              "columns": [
+                  { "data": "no" },
+                  { "data": "nama_kec" },
+                  { "data": "luas_w" },
+                  { "data": "penduduk" },
+                  { "data": "kepadatan" },
+                  { "data": "lattitude" },
+                  { "data": "longitude" },
+                  { "data": "aksi" }
+              ]  
+
+          });
+        });
+
+</script>
         <?php include './template/script.php'; ?>
     </body>
 </html>
