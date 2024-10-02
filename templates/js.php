@@ -83,7 +83,7 @@
 			layer: LayerKita // sesuaikan berdasarkan variabel yang di buat sendiri
 		},
 		{	
-			name: "Google Maps",
+			name: "Opencyclemap",
 			layer: L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png')
 		},
 		{

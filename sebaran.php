@@ -231,7 +231,7 @@ $j = mysqli_num_rows($TPST3R);
         style="background-image: url(assets/img/page-title-bg.jpg)"
       >
         <div class="container position-relative">
-          <h1>Kabupaten / Kota</h1>
+          <h1>Sebaran TPS</h1>
         </div>
       </div>
       <!-- End Page Title -->
@@ -241,7 +241,7 @@ $j = mysqli_num_rows($TPST3R);
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           
-      <h2>Peta Kabupaten Kota Banjarmasin</h2>
+      <h2>Peta Sebaran TPS</h2>
        <br>
        <div id="map"></div>
        <br> 

@@ -170,7 +170,7 @@ img {
 
 </div>
 <div class="button-container">
-<a href="data_tps" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali Ke awal</a>
+<a href="sebaran" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali Ke awal</a>
     </div>
 </section><!-- /About Section -->
     </main>

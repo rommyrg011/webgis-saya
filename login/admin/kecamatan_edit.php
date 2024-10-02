@@ -50,9 +50,9 @@ $tampilkec = mysqli_query($koneksi, "select * from kecamatan where id_kec='$id_k
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-3">Edit tps</h1>
+                        <h1 class="mt-3">Edit Kecamatan</h1>
                         <div class="alert alert-secondary">
-                            Edit tps
+                            Edit Kecamatan
                           </div>
                         
 <div class="card-header mb-4">

@@ -25,7 +25,7 @@
        <br> 
        <hr width="100%" noshade size="10%">
        <br>
-       <h2>Kecamatan Banjarmasin</h2>
+       <h2>Daftar Kabupaten / Kota</h2>
        <!-- Wrap table with table-responsive div for responsiveness -->
        <div class="table-responsive">
        <table class="table table-striped table-sm table-bordered" data-bs-theme="dark">

@@ -1,6 +1,8 @@
 <?php 
 include 'koneksi.php';
 include 'templates/head.php'; ?>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <body class="about-page">
 <?php include 'templates/navbar.php'; ?>
 <style>
@@ -32,80 +34,63 @@ include 'templates/head.php'; ?>
         style="background-image: url(assets/img/page-title-bg.jpg)"
       >
         <div class="container position-relative">
-          <h1>Grafik</h1>
+          <h1>Grafik Data TPS</h1>
         </div>
       </div>
-      <!-- End Page Title -->
-
+    
       <!-- Stats Counter Section -->
       <section id="stats-counter" class="stats-counter section">
+	  <div class="container section-title" data-aos="fade-up">
+	  <h2>Jumlah TPS</h2>
+	  <br>
 <center>
       <div class="chartpie">
-		<canvas id="myChart"></canvas>
+	  <div id="chartContainer" class="h-64"></div>
 	</div>
 
     <script>
-		var ctx = document.getElementById("myChart").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'pie',  // Ubah tipe chart menjadi 'pie chart' 
-			data: {
-				labels: ["BANJARMASIN TENGAH", "BANJARMASIN TIMUR", "BANJARMASIN BARAT", "BANJARMASIN SELATAN", "BANJARMASIN UTARA"],
-				datasets: [{
-					
-					data: [
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0\" Unit\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [
+                        { y: 
 					<?php 
 					$bjm_t = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN TENGAH'");
 					echo mysqli_num_rows($bjm_t);
-					?>, 
-					<?php 
-					$bjm_ti = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN TIMUR'");
-					echo mysqli_num_rows($bjm_ti);
-					?>, 
+					?>, label: "Banjarmasin Tengah" },
+                        { y:
 					<?php 
 					$bjm_ba = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN BARAT'");
 					echo mysqli_num_rows($bjm_ba);
-					?>,  
+					?>, label: "Banjarmasin Barat" },
+                        { y: 
 					<?php 
 					$bjm_u = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN SELATAN'");
 					echo mysqli_num_rows($bjm_u);
-					?>,
+					?>, label: "Banjarmasin Selatan" },
+                        { y: 
 					<?php 
 					$bjm_u = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN UTARA'");
 					echo mysqli_num_rows($bjm_u);
-					?>
-					],
-					backgroundColor: [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(52, 57, 57, 1)',
-					'rgba(153, 255, 204, 1)'
-					],
-					borderColor: [
-					'rgba(255,99,132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(52, 57, 57, 1)',
-					'rgba(153, 255, 204, 1)'
-					],
-					borderWidth: 2
-				}]
-			},
-			options: {
-				responsive: true,
-				// maintainAspectRatio: false, // Mengatur agar grafik responsif
-				plugins: {
-					legend: {
-						position: 'top',
-					},
-					tooltip: {
-						enabled: true,
-					}
-				}
-			}
-		});
-	</script>
+						?>, label: "Banjarmasin Utara" },
+                        { y: 
+					<?php 
+					$bjm_ti = mysqli_query($koneksi,"select * from tps where kecamatan='BANJARMASIN TIMUR'");
+					echo mysqli_num_rows($bjm_ti);
+					?>, label: "Banjarmasin Timur" }
+                    ]
+                }]
+            });
+            chart.render();
+        }
+    </script>
 </center>
+	  </div>
       </section>
       <!-- /Stats Counter Section -->
     </main>

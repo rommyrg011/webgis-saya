@@ -45,7 +45,6 @@
     <!-- script tampil grafik batang / lingkaran -->
     <script type="text/javascript" src="templates/chartjs/Chart.js"></script>
 
-
 <!-- bootstrap 5 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap5.css">
