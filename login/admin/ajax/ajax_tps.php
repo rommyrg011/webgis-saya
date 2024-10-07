@@ -5,17 +5,19 @@ if($_GET['action'] == "dataTps"){
 
 	$columns = array( 
 		0 => 'id_tps', 
-		1 => 'nama_tps',
-		2 => 'kecamatan',
-		3 => 'alamat',
-		4 => 'kapasitas',
-		5 => 'ukuran_bangunan',
-		6 => 'jam_operasional',
-		7 => 'alat_angkutan',
-		8 => 'jam_angkutan',
-		9 => 'lattitude',
-		10 => 'longitude',
-		11 => 'maps_direction'
+		1 => 'tipe', 
+		2 => 'nama_tps',
+		3 => 'kecamatan',
+		4 => 'alamat',
+		5 => 'kapasitas',
+		6 => 'ukuran_bangunan',
+		7 => 'jam_operasional',
+		8 => 'alat_angkutan',
+		9 => 'jam_angkutan',
+		10 => 'lattitude',
+		11 => 'longitude',
+		12 => 'maps_direction',
+		13 => 'image'
 	);
 
 	$querycount = $koneksi->query("SELECT count(id_tps) as jumlah FROM tps");
@@ -29,14 +31,14 @@ if($_GET['action'] == "dataTps"){
 	$dir = $_POST['order']['0']['dir'];
 
 	if(empty($_POST['search']['value'])) {            
-		$query = $koneksi->query("SELECT id_tps, tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, alat_angkutan, jam_angkutan, lattitude, longitude, maps_direction 
+		$query = $koneksi->query("SELECT id_tps, tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, alat_angkutan, jam_angkutan, lattitude, longitude, maps_direction, image 
 								  FROM tps
 								  ORDER BY $order $dir 
 								  LIMIT $limit 
 								  OFFSET $start");
 	} else {
 		$search = $_POST['search']['value']; 
-		$query = $koneksi->query("SELECT id_tps, tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, alat_angkutan, jam_angkutan, lattitude, longitude, maps_direction 
+		$query = $koneksi->query("SELECT id_tps, tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, alat_angkutan, jam_angkutan, lattitude, longitude, maps_direction, image 
 								  FROM tps 
 								  WHERE nama_tps LIKE '%$search%' 
 								  OR kecamatan LIKE '%$search%' 
@@ -57,6 +59,14 @@ if($_GET['action'] == "dataTps"){
 		$no = $start + 1;
 		while ($r = $query->fetch_array()) {
 			$nestedData['no'] = $no;
+    		if($r['image']==null){
+    		//Jika tidak ada gambar
+        	$img = 'No Photo';
+    		} else {
+            //jika ada gambar
+        	$img = '<img src="../../images/'.$r['image'].'" class="gambar">';
+    		}
+			$nestedData['image'] = $img;
 			$nestedData['tipe'] = $r['tipe'];
 			$nestedData['nama_tps'] = $r['nama_tps'];
 			$nestedData['kecamatan'] = $r['kecamatan'];

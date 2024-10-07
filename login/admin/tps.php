@@ -24,10 +24,16 @@ if($_SESSION['status'] =="login"){
     .dash:hover {
         color: blue;
     }
-
+	.gambar {
+    width: 100px;
+    border: 2px solid black;
+    }
+    .gambar:hover {
+    transform: scale(1.9);
+    transition: 0.3s ease;
+    }
 </style>
 
-</styl>
     <body class="sb-nav-fixed">
         <?php include './template/navbar.php'; ?>
         <div id="layoutSidenav">
@@ -59,7 +65,7 @@ if($_SESSION['status'] =="login"){
                         </script>
 
 <?php
-                                //jika berhasil insert
+                        //jika berhasil insert
                         if(isset($_SESSION['notif'])){
                             
                             ?>
@@ -85,8 +91,10 @@ if($_SESSION['status'] =="login"){
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kecamatan</th>
+                                            <th>foto</th>
                                             <th>Tipe</th>
+                                            <th>Kecamatan</th>
+                                            
                                             <th>Nama TPS</th>
                                             <th>Lokasi</th>
                                             <th>Kapasitas</th>
@@ -129,6 +137,7 @@ if($_SESSION['status'] =="login"){
                      },
               "columns": [
                   { "data": "no" },
+                  { "data": "image" },
                   { "data": "tipe" },
                   { "data": "nama_tps" },
                   { "data": "kecamatan" },

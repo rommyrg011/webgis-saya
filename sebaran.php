@@ -251,71 +251,80 @@ $j = mysqli_num_rows($TPST3R);
        <br>
        <div class="table-responsive">
        <table class="table table-bordered table-sm" style="width:100%; margin: 0 auto;" data-bs-theme="dark">
-       <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Jumlah</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    
-                                    <tbody>
-                                  
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TPS Banjarmasin Selatan</td>
-                                            <td><?=$a; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>2</td>
-                                            <td>TPS Banjarmasin Timur</td>
-                                            <td><?=$c; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>3</td>
-                                            <td>TPS Banjarmasin Barat</td>
-                                            <td><?=$e; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>4</td>
-                                            <td>TPS Banjarmasin Utara</td>
-                                            <td><?=$g; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>5</td>
-                                            <td>TPS Banjarmasin Tengah</td>
-                                            <td><?=$i; ?></td>
-                                        </tr> 
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Jumlah</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>TPS Banjarmasin Selatan</td>
+            <td><?=$a; ?></td>
+        </tr> 
+        <tr>
+            <td>2</td>
+            <td>TPS Banjarmasin Timur</td>
+            <td><?=$c; ?></td>
+        </tr> 
+        <tr>
+            <td>3</td>
+            <td>TPS Banjarmasin Barat</td>
+            <td><?=$e; ?></td>
+        </tr> 
+        <tr>
+            <td>4</td>
+            <td>TPS Banjarmasin Utara</td>
+            <td><?=$g; ?></td>
+        </tr> 
+        <tr>
+            <td>5</td>
+            <td>TPS Banjarmasin Tengah</td>
+            <td><?=$i; ?></td>
+        </tr> 
+        <tr>
+            <td>6</td>
+            <td>TPST3R Banjarmasin Selatan</td>
+            <td><?=$b;?></td>
+        </tr> 
+        <tr>
+            <td>7</td>
+            <td>TPST3R TPS Banjarmasin Timur</td>
+            <td><?=$d; ?></td>
+        </tr> 
+        <tr>
+            <td>8</td>
+            <td>TPST3R TPS Banjarmasin Barat</td>
+            <td><?=$f; ?></td>
+        </tr> 
+        <tr>
+            <td>9</td>
+            <td>TPST3R TPS Banjarmasin Utara</td>
+            <td><?=$h;?></td>
+        </tr> 
+        <tr>
+            <td>10</td>
+            <td>TPST3R TPS Banjarmasin Tengah</td>
+            <td><?=$j; ?></td>
+        </tr> 
+    </tbody>
+    <tfoot>
+        <!-- Menampilkan total jumlah TPS -->
+        <tr>
+            <th colspan="2">Total Jumlah TPS</th>
+            <th>
+                <?php
+                $total = $a + $b + $c + $d + $e + $f + $g + $h + $i + $j;
+                echo $total;
+                ?>
+            </th>
+        </tr>
+        
+    </tfoot>
+</table>
 
-                                        <tr>
-                                            <td>6</td>
-                                            <td>TPST3R Banjarmasin Selatan</td>
-                                            <td><?=$b;?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TPST3R TPS Banjarmasin Timur</td>
-                                            <td><?=$d; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>8</td>
-                                            <td>TPST3R TPS Banjarmasin Barat</td>
-                                            <td><?=$f; ?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>9</td>
-                                            <td>TPST3R TPS Banjarmasin Utara</td>
-                                            <td><?=$h;?></td>
-                                        </tr> 
-                                        <tr>
-                                            <td>10</td>
-                                            <td>TPST3R TPS Banjarmasin Tengah</td>
-                                            <td><?=$j; ?></td>
-                                        </tr> 
-
-        </tbody>
-    </table>
        </div>
         </div>
         

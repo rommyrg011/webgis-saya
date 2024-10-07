@@ -9,7 +9,7 @@
         style="background-image: url(assets/img/page-title-bg.jpg)"
       >
         <div class="container position-relative">
-          <h1>Feedback Masyarakat</h1>
+          <h1>Feedback</h1>
         </div>
       </div>
       <!-- End Page Title -->
@@ -19,7 +19,7 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           
-      <h3>Saran / Masukan</h3>
+      <h2>Feedback</h2>
       <?php
 //tambah feedback
 if(isset($_POST['tfeedback'])){
@@ -33,15 +33,15 @@ if(isset($_POST['tfeedback'])){
       echo '
 			<center> <div class="container">
         <div class="alert alert-success alert-dismissible fade show">
-        <center><h6><i class="fa fa-refresh fa-spin"></i> Berhasil Di kirim</h6></center>
+        <center><h4>Terimakasih atas umpan baliknya</h4></center>
     </div>
         </div>
     </center>
-    <meta http-equiv="refresh" content="3; url=feedback.php"/>';
+    <meta http-equiv="refresh" content="3; url=feedback"/>';
 		} else {
 			echo '
 			<script>alert("Gagal");
-			window.location.href="../feedback.php"
+			window.location.href="feedback"
 			</script>';
 		}
 	}
@@ -68,7 +68,7 @@ if(isset($_POST['tfeedback'])){
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="keterangan" rows="6" placeholder="Saran / Masukan" required autocomplete="off"></textarea>
+                  <textarea class="form-control" name="keterangan" rows="6" placeholder="Keterangan" required autocomplete="off"></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">

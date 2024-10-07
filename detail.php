@@ -67,9 +67,6 @@
  
 }
 
-p {
-  font-style: italic;
-}
 img {
   border:5px solid #d8c585;
 }

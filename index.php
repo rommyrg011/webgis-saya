@@ -45,8 +45,8 @@ window.onload = function() {
     // Periksa apakah modal sudah pernah ditampilkan
     var lastShown = localStorage.getItem('lastModalShown');
 
-    // Jika modal belum pernah ditampilkan atau sudah lebih dari 24 jam sejak terakhir kali ditampilkan
-    if (!lastShown || (now - lastShown) > 2 * 60 * 60 * 1000) { // 24 jam dalam milidetik
+    // Jika modal belum pernah ditampilkan atau sudah lebih dari 2 jam sejak terakhir kali ditampilkan
+    if (!lastShown || (now - lastShown) > 2 * 60 * 60 * 1000) {
       
       // Tampilkan modal
       var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
@@ -57,11 +57,51 @@ window.onload = function() {
 
       // Set waktu sekarang di localStorage sebagai 'lastModalShown'
       localStorage.setItem('lastModalShown', now);
+
+      // Event listener untuk animasi setelah modal ditutup
+      document.getElementById('myModal').addEventListener('hidden.bs.modal', function () {
+        startTextAnimation();
+      });
+    } else {
+      // Jika modal tidak perlu ditampilkan, langsung jalankan animasi teks
+      startTextAnimation();
     }
   } else {
     console.error('Browser tidak mendukung localStorage.');
   }
+
+  // Fungsi untuk memulai animasi teks
+  function startTextAnimation() {
+    const text = document.getElementById('animated-text');
+    const strText = text.innerHTML;
+    const splitText = strText.split('');
+    text.innerHTML = '';
+
+    // Membuat elemen span untuk setiap huruf
+    for (let i = 0; i < splitText.length; i++) {
+      let span = document.createElement('span');
+      span.innerHTML = splitText[i];
+      text.appendChild(span);
+    }
+
+    // Memunculkan huruf satu per satu
+    let char = 0;
+    let timer = setInterval(onTick, 40); // Waktu antara munculnya tiap huruf (40 milisecond)
+
+    function onTick() {
+      const span = text.querySelectorAll('span')[char];
+      span.classList.add('visible');
+      char++;
+
+      // Hentikan interval ketika semua huruf sudah muncul
+      if (char === splitText.length) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+  }
 };
+
     
 
     // localStorage.removeItem('modalShown'); = ini untuk membersihkan localStorage / menguji ulang 
@@ -129,6 +169,30 @@ window.onload = function() {
   }
 }
 
+h2>span{
+  font-size: 25px;
+  color: #f9e896;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 765px;
+  display: block; /* Mengubah elemen img menjadi block */
+  margin-left: auto; /* Margin kiri otomatis */
+  margin-right: auto; /* Margin kanan otomatis */
+}
+
+#animated-text {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+
 
 </style>
 
@@ -141,8 +205,8 @@ window.onload = function() {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Selamat Datang
-      Ini adalah aplikasi tps kota banjarmasin
+        <p>Sistem informasi geografis ini membantu anda menemukan informasi TPS terdekat dimana anda berada</p>
+        <img src="images/banner.jpg">
       </div>
     </div>
   </div>
@@ -158,11 +222,12 @@ window.onload = function() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div class="col-lg-6 text-center">
-                <h2>Selamat Datang di Sistem Informasi Geografis</h2>
-                <p>
-                  Temukan TPS terdekat dari lokasi anda tinggal
+              <div class="text-center">
+                <h2 style="font-size: 50px;">Selamat Datang di<span>Sistem Informasi Geografis</span></h2>
+                <p id="animated-text" style="font-size: 25px; font-weight: bold;">
+                Dapatkan informasi TPS terdekat di sekitar lokasi Anda sekarang.
                 </p>
+
                 
               </div>
             </div>
@@ -180,11 +245,11 @@ window.onload = function() {
           </div>
 
           <div class="carousel-item active">
-            <img src="assets/img/pasar-cemara.jpg" alt="" />
+            <img src="assets/img/perdagangan.jpg" alt="" />
           </div>
 
           <div class="carousel-item">
-            <img src="assets/img/perdagangan.jpg" alt="" />
+            <img src="assets/img/pasar-cemara.jpg" alt="" />
           </div>
 
           <a
@@ -220,12 +285,12 @@ window.onload = function() {
   <div class="row gy-4 justify-content-center">
 
     <div class="col-xl-6 col-md-6 col-sm-12">
-      <div class="card text-white mb-4" style="background-image: url('images/home.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
+      <div class="card text-white mb-4" style="background-image: url('images/kecamatan.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
         <div class="card-body">
           <center>
             <h1 style="font-size: 30px; margin-top: 25px;">KECAMATAN</h1>
             <h1 align="center" style="font-size: 25px;">
-              <a href="kabupaten.php" style="color: yellow; text-decoration: none;">
+              <a href="kota" style="color: yellow; text-decoration: none;">
                 <?=$h2; ?>
               </a>
             </h1>
@@ -240,7 +305,7 @@ window.onload = function() {
           <center>
             <h1 style="font-size: 30px; margin-top: 25px;">SEBARAN TPS</h1>
             <h1 align="center" style="font-size: 25px;">
-              <a href="kabupaten.php" style="color: yellow; text-decoration: none;">
+              <a href="sebaran" style="color: yellow; text-decoration: none;">
                 <?=$h4; ?>
               </a>
             </h1>
@@ -258,3 +323,4 @@ window.onload = function() {
 <?php include 'templates/footer.php'; ?>
 
     <?php include 'templates/js.php'; ?>
+

@@ -9,7 +9,7 @@
         style="background-image: url(assets/img/page-title-bg.jpg)"
       >
         <div class="container position-relative">
-          <h1>Tempat Pembuangan Sampah Sementara (TPS) </h1>
+          <h1>Tentang</h1>
         </div>
       </div>
       <!-- End Page Title -->
@@ -18,6 +18,7 @@
       <section id="alt-services" class="alt-services section">
         <div class="container">
           <div class="row justify-content-around gy-4">
+          
             <div
               class="features-image col-lg-6"
               data-aos="fade-up"
@@ -25,30 +26,35 @@
             >
               <img src="images/home.jpg" alt="" />
             </div>
+            
 
             <div
               class="col-lg-5 d-flex flex-column justify-content-center"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-              <p>
-                Esse voluptas cumque vel exercitationem. Reiciendis est hic
-                accusamus. Non ipsam et sed minima temporibus laudantium. Soluta
-                voluptate sed facere corporis dolores excepturi
+            <h3>Sistem Informasi Geografis</h3>
+              <p align="justify">
+              Sistem Informasi Geografis (SIG) merupakan alat yang digunakan untuk mengumpulkan,
+              menganalisis, dan menampilkan data yang berhubungan dengan lokasi di permukaan bumi.
+              Dengan menggunakan SIG, berbagai informasi spasial dapat dipetakan dan dianalisis 
+              untuk mendukung pengambilan keputusan yang lebih baik. Dalam konteks pengelolaan sampah, 
+              aplikasi SIG dapat dimanfaatkan untuk memantau, mengelola, dan mengoptimalkan penggunaan 
+              Tempat Pembuangan Sampah Sementara (TPS).
               </p>
+              <br>
+              <h3>Tujuan Aplikasi</h3>
 
               <div
-                class="icon-box d-flex position-relative"
+                class="icon-box d-flex position-relative mt-3"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <i class="bi bi-easel flex-shrink-0"></i>
+              <i class="bi bi-patch-check flex-shrink-0"></i>
                 <div>
-                  <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+                  
                   <p>
-                    Voluptatum deleniti atque corrupti quos dolores et quas
-                    molestias excepturi sint occaecati cupiditate non provident
+                  Memetakan lokasi TPS di seluruh wilayah Kota Banjarmasin berdasarkan data dari Dinas Lingkungan Hidup.
                   </p>
                 </div>
               </div>
@@ -61,10 +67,8 @@
               >
                 <i class="bi bi-patch-check flex-shrink-0"></i>
                 <div>
-                  <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
                   <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                    qui blanditiis praesentium voluptatum deleniti atque
+                  Menyediakan informasi real-time mengenai kapasitas TPS, volume sampah, dan status pengangkutan untuk memantau efektivitas pengelolaan sampah.
                   </p>
                 </div>
               </div>
@@ -75,28 +79,23 @@
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <i class="bi bi-brightness-high flex-shrink-0"></i>
+              <i class="bi bi-patch-check flex-shrink-0"></i>
                 <div>
-                  <h4><a href="" class="stretched-link">Dine Pad</a></h4>
                   <p>
-                    Explicabo est voluptatum asperiores consequatur magnam. Et
-                    veritatis odit. Sunt aut deserunt minus aut eligendi omnis
+                  Mengoptimalkan penempatan TPS baru berdasarkan analisis spasial yang mempertimbangkan aksesibilitas dan kebutuhan penduduk.
                   </p>
                 </div>
               </div>
-              <!-- End Icon Box -->
 
               <div
                 class="icon-box d-flex position-relative"
                 data-aos="fade-up"
                 data-aos-delay="600"
               >
-                <i class="bi bi-brightness-high flex-shrink-0"></i>
+              <i class="bi bi-patch-check flex-shrink-0"></i>
                 <div>
-                  <h4><a href="" class="stretched-link">Tride clov</a></h4>
                   <p>
-                    Est voluptatem labore deleniti quis a delectus et. Saepe
-                    dolorem libero sit non aspernatur odit amet. Et eligendi
+                  Memudahkan akses masyarakat terhadap informasi TPS terdekat melalui peta interaktif dan fitur pencarian lokasi.
                   </p>
                 </div>
               </div>

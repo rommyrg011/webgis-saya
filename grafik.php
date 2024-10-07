@@ -38,14 +38,14 @@ include 'templates/head.php'; ?>
         </div>
       </div>
     
-      <!-- Stats Counter Section -->
+    
       <section id="stats-counter" class="stats-counter section">
 	  <div class="container section-title" data-aos="fade-up">
 	  <h2>Jumlah TPS</h2>
 	  <br>
 <center>
       <div class="chartpie">
-	  <div id="chartContainer" class="h-64"></div>
+	  <div id="chartContainer" class="h-64" style="height:370px;"></div>
 	</div>
 
     <script>

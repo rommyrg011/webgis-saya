@@ -80,12 +80,12 @@ while($data=mysqli_fetch_array($tampiltps)){
         
         <div class="mb-3">
         <label>Tipe :</label>
-        <input type="text" class="form-control" name="tipe" placeholder="Nama TPS" value="<?=$tipe;?>" required>
+        <input type="text" class="form-control" name="tipe" placeholder="Tipe" value="<?=$tipe;?>" style="text-transform: uppercase;" required>
         </div>
 
         <div class="mb-3">
         <label>Nama TPS :</label>
-        <input type="text" class="form-control" name="nama_tps" placeholder="Nama TPS" value="<?=$namatps;?>" required>
+        <input type="text" class="form-control" name="nama_tps" placeholder="Nama TPS" value="<?=$namatps;?>" style="text-transform: uppercase;" required>
         </div>
 
         <div class="mb-3">

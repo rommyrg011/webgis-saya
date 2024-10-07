@@ -81,14 +81,6 @@
 		{
 			name: "OpenStreetMap",
 			layer: LayerKita // sesuaikan berdasarkan variabel yang di buat sendiri
-		},
-		{	
-			name: "Opencyclemap",
-			layer: L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png')
-		},
-		{
-			name: "Outdoors",
-			layer: L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png')
 		}
 	];
 
