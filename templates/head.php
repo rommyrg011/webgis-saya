@@ -41,17 +41,9 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- script tampil grafik batang / lingkaran -->
-    <script type="text/javascript" src="templates/chartjs/Chart.js"></script>
-
 <!-- bootstrap 5 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap5.css">
-
-<!-- bootstrap 4 -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"> -->
-
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -89,7 +81,7 @@ body{
 			font-family: roboto;
       
 }
-/* Base style for container */
+
 .container.position-relative {
   position: relative;
   width: 100%;
@@ -98,37 +90,35 @@ body{
   margin-left: auto;
 }
 
-/* Text styles */
 .container.position-relative h1, 
 .container.position-relative h2, 
 .container.position-relative p {
-  font-size: 1.5rem; /* Base font size */
+  font-size: 1.5rem;
 }
 
-/* For small devices (phones, up to 576px) */
 @media (max-width: 576px) {
   .container.position-relative {
-    padding: 10px; /* Reduce padding for mobile */
+    padding: 10px; 
     width: 100%;
   }
   
   .container.position-relative h1 {
-    font-size: 2.4rem; /* Reduce font size for mobile */
+    font-size: 2.4rem; 
   }
 
   .container.position-relative h2 {
-    font-size: 1rem; /* Adjust subheading font size */
+    font-size: 1rem;
   }
 
   .container.position-relative p {
-    font-size: 0.9rem; /* Smaller font size for paragraph */
+    font-size: 0.9rem; 
   }
 }
 
-/* For medium devices (tablets, 576px and up) */
+
 @media (min-width: 576px) and (max-width: 768px) {
   .container.position-relative h1 {
-    font-size: 1.4rem; /* Slightly smaller heading on tablets */
+    font-size: 1.4rem; 
   }
 
   .container.position-relative h2 {
@@ -140,10 +130,10 @@ body{
   }
 }
 
-/* For larger devices (desktops, 768px and up) */
+
 @media (min-width: 768px) {
   .container.position-relative h1 {
-    font-size: 3rem; /* Larger font for bigger screens */
+    font-size: 3rem; 
   }
 
   .container.position-relative h2 {
@@ -192,9 +182,6 @@ h3.inner-title {
     padding: 10px; /* Adjust padding for mobile */
   }
 }
-
-
-
 	</style>
 
   </head>

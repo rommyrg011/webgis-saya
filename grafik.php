@@ -39,7 +39,7 @@ include 'templates/head.php'; ?>
       </div>
     
     
-      <section id="stats-counter" class="stats-counter section">
+      <section id="alt-services" class="alt-services section">
 	  <div class="container section-title" data-aos="fade-up">
 	  <h2>Jumlah TPS</h2>
 	  <br>

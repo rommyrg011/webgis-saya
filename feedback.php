@@ -15,7 +15,7 @@
       <!-- End Page Title -->
 
       <!-- Stats Counter Section -->
-      <section id="stats-counter" class="stats-counter section">
+      <section id="alt-services" class="alt-services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           

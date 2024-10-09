@@ -85,65 +85,74 @@ if(isset($_POST['editkecamatan'])){
 
 //tambah tps
 if(isset($_POST['tambahtps'])){
-    $tipe = $_POST['tipe'];
-    $nmt = $_POST['nama_tps'];
-    $kecamatan = $_POST['kecamatan'];
-    $alamat = $_POST['alamat'];
-    $kap = $_POST['kapasitas'];
-    $uk = $_POST['ukuran_bangunan'];
-    $jam = $_POST['jam_operasional'];
-    $jam_a = $_POST['jam_angkutan'];
-    $alat = $_POST['alat_angkutan'];
-    $maps = $_POST['maps_direction'];
-    $lat = $_POST['lattitude'];
-    $lng = $_POST['longitude'];
+  $tipe = $_POST['tipe'];
+  $nmt = $_POST['nama_tps'];
+  $kecamatan = $_POST['kecamatan'];
+  $alamat = $_POST['alamat'];
+  $kap = $_POST['kapasitas'];
+  $uk = $_POST['ukuran_bangunan'];
+  $jam = $_POST['jam_operasional'];
+  $jam_a = $_POST['jam_angkutan'];
+  $alat = $_POST['alat_angkutan'];
+  $maps = $_POST['maps_direction'];
+  $lat = $_POST['lattitude'];
+  $lng = $_POST['longitude'];
 
-     //soal gambar
+  //soal gambar
   $allowed_extension = array('png','jpg','jpeg', 'svg'); // tipe gambar yang di perbolehkan upload
-  $nama = $_FILES['file']['name']; //ngambil nama file gambar
-  $dot = explode('.',$nama);
-  $ekstensi = strtolower(end($dot)); // mengambil ektensinya
-  $ukuran = $_FILES['file']['size']; //mengambil size gambar
-  $file_tmp = $_FILES['file']['tmp_name'];//tmp=temporary, mengambil lokasi filenya
+  $image = null; // inisialisasi variabel gambar
 
-  //penamaan file -> enkripsi
-  $image = md5(uniqid($nama,true) . time()).'.'.$ekstensi; //menggabungkan nama file yang di enskripsi dengan ekstensinya
-    
-//proses upload gambar
-if(in_array($ekstensi, $allowed_extension) === true){
-  //validasi ukuran filennya
-  if($ukuran < 1000000){
-      move_uploaded_file($file_tmp, '../../images/'.$image);
+  // Cek apakah file diunggah
+  if (isset($_FILES['file']) && $_FILES['file']['error'] != UPLOAD_ERR_NO_FILE) {
+      $nama = $_FILES['file']['name']; //ngambil nama file gambar
+      $dot = explode('.', $nama);
+      $ekstensi = strtolower(end($dot)); // mengambil ektensinya
+      $ukuran = $_FILES['file']['size']; //mengambil size gambar
+      $file_tmp = $_FILES['file']['tmp_name']; //tmp=temporary, mengambil lokasi filenya
 
-    $tambahtps = mysqli_query($koneksi, "insert into tps (tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, jam_angkutan, alat_angkutan, lattitude, longitude, maps_direction, image) values 
-    ('$tipe' ,'$nmt', '$kecamatan', '$alamat', '$kap', '$uk', '$jam', '$jam_a', '$alat', '$lat', '$lng', '$maps', '$image')");
-    if($tambahtps){
-        $_SESSION['notif'] = "Berhasil Ditambahkan";
-		header('location: tps');
-    }else {
-		echo '
-		<script>alert("Gagal");
-		window.location.href="tps"
-		</script>';
-	}
-} else {
-  //jika ukuran filenya lebih dari 8 mb
-  echo'
-  <script> alert("Ukuran Gambar terlalu besar");
-  window.location.href="tps";
-  </script>';
+      //penamaan file -> enkripsi
+      $image = md5(uniqid($nama,true) . time()) . '.' . $ekstensi; //menggabungkan nama file yang di enskripsi dengan ekstensinya
+      
+      //proses upload gambar
+      if (in_array($ekstensi, $allowed_extension) === true) {
+          //validasi ukuran filennya
+          if ($ukuran < 1000000) {
+              move_uploaded_file($file_tmp, '../../images/' . $image);
+          } else {
+              //jika ukuran filenya lebih dari 1 MB
+              echo '
+              <script> alert("Ukuran Gambar terlalu besar");
+              window.location.href="tps";
+              </script>';
+              exit; // Hentikan proses lebih lanjut
+          }
+      } else {
+          //jika gambar tidak png /jpg
+          echo '
+          <script> alert("File Harus png atau jpg");
+          window.location.href="tps";
+          </script>';
+          exit; // Hentikan proses lebih lanjut
+      }
+  }
+
+  // Masukkan data ke dalam database
+  $tambahtps = mysqli_query($koneksi, "INSERT INTO tps (tipe, nama_tps, kecamatan, alamat, kapasitas, ukuran_bangunan, jam_operasional, jam_angkutan, alat_angkutan, lattitude, longitude, maps_direction, image) VALUES 
+  ('$tipe', '$nmt', '$kecamatan', '$alamat', '$kap', '$uk', '$jam', '$jam_a', '$alat', '$lat', '$lng', '$maps', '$image')");
+
+  if ($tambahtps) {
+      $_SESSION['notif'] = "Berhasil Ditambahkan";
+      header('location: tps');
+  } else {
+      echo '
+      <script>alert("Gagal");
+      window.location.href="tps";
+      </script>';
+  }
 }
 
-} else {
-//jika gambar tidak png /jpg
-    echo'
-    <script> alert("File Harus png atau jpg");
-    window.location.href="tps";
-    </script>';
-    }
-}
 //edit tps
-if(isset($_POST['edittps'])){
+if(isset($_POST['edittps'])) {
   $nmt = $_POST['nama_tps'];
   $kecamatan = $_POST['kecamatan'];
   $alamat = $_POST['alamat'];
@@ -158,61 +167,69 @@ if(isset($_POST['edittps'])){
   $id_t = $_POST['id_tps'];
   $tip = $_POST['tipe'];
 
-  // Get the old image path from the database
+  // Mendapatkan path gambar lama dari database
   $result = mysqli_query($koneksi, "SELECT image FROM tps WHERE id_tps='$id_t'");
   $data = mysqli_fetch_assoc($result);
   $old_image = $data['image'];
 
-  // File upload processing
-  $allowed_extension = array('png', 'jpg', 'jpeg', 'svg'); // Allowed file types
-  $nama = $_FILES['file']['name']; // Get the new file name
-  $dot = explode('.', $nama);
-  $ekstensi = strtolower(end($dot)); // Get the extension
-  $ukuran = $_FILES['file']['size']; // Get the file size
-  $file_tmp = $_FILES['file']['tmp_name']; // Temporary file location
+  // Proses unggahan file
+  $allowed_extension = array('png', 'jpg', 'jpeg', 'svg'); // Tipe file yang diizinkan
+  $image = $old_image; // Gunakan gambar lama jika tidak ada file baru yang diunggah
 
-  // File name encryption
-  $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // New encrypted file name
+  // Cek apakah file diunggah
+  if (isset($_FILES['file']) && $_FILES['file']['error'] != UPLOAD_ERR_NO_FILE) {
+      $nama = $_FILES['file']['name']; // Mengambil nama file baru
+      $dot = explode('.', $nama);
+      $ekstensi = strtolower(end($dot)); // Mengambil ekstensi
+      $ukuran = $_FILES['file']['size']; // Mengambil ukuran file
+      $file_tmp = $_FILES['file']['tmp_name']; // Lokasi file sementara
 
-  // Process the file upload
-  if(in_array($ekstensi, $allowed_extension) === true){
-      if($ukuran < 10000000){ // Adjust size limit if needed
-          // Delete the old image if it exists
-          if(file_exists('../../images/' . $old_image)){
-              unlink('../../images/' . $old_image); // Delete the old image
-          }
+      // Penamaan file -> enkripsi
+      $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // Nama file baru yang dienkripsi
 
-          // Upload the new image
-          move_uploaded_file($file_tmp, '../../images/' . $image);
+      // Proses unggahan file
+      if (in_array($ekstensi, $allowed_extension) === true) {
+          if ($ukuran < 10000000) { // Sesuaikan batas ukuran jika perlu
+              // Hapus gambar lama jika ada
+              if (file_exists('../../images/' . $old_image)) {
+                  unlink('../../images/' . $old_image); // Hapus gambar lama
+              }
 
-          // Update the database with the new image and other data
-          $edittps = mysqli_query($koneksi, "UPDATE tps 
-              SET nama_tps='$nmt', tipe='$tip', kecamatan='$kecamatan', alamat='$alamat', kapasitas='$kap', ukuran_bangunan='$uk', jam_operasional='$jam', jam_angkutan='$jam_a', alat_angkutan='$alat', lattitude='$lat', longitude='$lng', maps_direction='$maps', image='$image' 
-              WHERE id_tps='$id_t'");
-          
-          if($edittps){
-              $_SESSION['notif'] = "Berhasil Diedit";
-              header('location: tps');
+              // Unggah gambar baru
+              move_uploaded_file($file_tmp, '../../images/' . $image);
           } else {
+              // Jika ukuran file melebihi batas
               echo '
-              <script>alert("Gagal");
+              <script> alert("Ukuran Gambar terlalu besar");
               window.location.href="tps";
               </script>';
+              exit; // Hentikan proses lebih lanjut
           }
       } else {
-          // If file size exceeds the limit
+          // Jika tipe file bukan png/jpg
           echo '
-          <script> alert("Ukuran Gambar terlalu besar");
+          <script> alert("File Harus png atau jpg");
           window.location.href="tps";
           </script>';
+          exit; // Hentikan proses lebih lanjut
       }
+  }
+
+  // Perbarui database dengan gambar baru dan data lainnya
+  $edittps = mysqli_query($koneksi, "UPDATE tps 
+      SET nama_tps='$nmt', tipe='$tip', kecamatan='$kecamatan', alamat='$alamat', kapasitas='$kap', ukuran_bangunan='$uk', jam_operasional='$jam', jam_angkutan='$jam_a', alat_angkutan='$alat', lattitude='$lat', longitude='$lng', maps_direction='$maps', image='$image' 
+      WHERE id_tps='$id_t'");
+
+  if ($edittps) {
+      $_SESSION['notif'] = "Berhasil Diedit";
+      header('location: tps');
   } else {
-      // If file type is not png/jpg
       echo '
-      <script> alert("File Harus png atau jpg");
+      <script>alert("Gagal");
       window.location.href="tps";
       </script>';
   }
 }
+
 
 

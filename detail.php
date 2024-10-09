@@ -71,7 +71,6 @@ img {
   border:5px solid #d8c585;
 }
 .btn-warning{
-  font-style: italic;
   font-weight: bold;
 }
 </style>
