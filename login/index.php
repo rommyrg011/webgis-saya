@@ -8,14 +8,14 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Silahkan Login</title>
-    <link rel="website icon" type="png" href="img/arayalogin.png" />
+    <link rel="website icon" type="png" href="../images/map.png" />
     <link href="./admin/template/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <style>
     html,
     body {
-        background-image: url("img/araya.jpg");
+        background-image: url("../images/home.jpg");
         height: 100vh;
         background-position: center;
         background-repeat: no-repeat;
@@ -48,7 +48,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 40%;
+        width: 20%;
     }
 
     .btn-md {
@@ -69,7 +69,7 @@
 
                         <div class="col-lg-6">
                             <br>
-                           <center><img src="img/arayalogin.png"></center>
+                           <center><img src="../images/map.png"></center>
                             
                             
                             <!-- <center>

@@ -192,65 +192,26 @@ img {
   visibility: visible;
 }
 
-center {
-    font-size: 150px; /* Ukuran default untuk layar besar */
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+        }
 
-/* Untuk perangkat dengan lebar layar 768px atau lebih kecil (tablet atau mobile) */
-@media (max-width: 768px) {
-    center {
-        font-size: 100px; /* Ukuran lebih kecil untuk tablet */
-    }
-}
-
-/* Untuk perangkat dengan lebar layar 480px atau lebih kecil (mobile) */
-@media (max-width: 480px) {
-    center {
-        font-size: 70px; /* Ukuran lebih kecil untuk ponsel */
-    }
-}
-/* Ukuran default untuk desktop */
-.modal-dialog {
-    margin-top: 90px;
-}
-
-/* Untuk tablet (layar dengan lebar maksimal 768px) */
-@media (max-width: 768px) {
-    .modal-dialog {
-        margin-top: 60px;  /* Margin lebih kecil untuk tablet */
-    }
-}
-
-/* Untuk mobile (layar dengan lebar maksimal 480px) */
-@media (max-width: 480px) {
-    .modal-dialog {
-        margin-top: 40px;  /* Margin lebih kecil untuk ponsel */
-    }
-}
-
-
-.cent, h2, h5{
-  text-align: center;
-}
 
 </style>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <br><br>
-      <div class="modal-body">
-        <center>🗺️🗑️</center>
-        <h2>SIG TPS SAMPAH</h2>
-        <h5>Temukan lokasi TPS terdekat dengan mudah menggunakan Sistem Informasi Geografis kami!</h5>
-        <br>
-        <div class="cent">
-        <button class="btn btn-success" data-bs-dismiss="modal">Jelajahi Sekarang</button>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Selamat Datang</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        🗺️🗑️
+        <p>Sistem informasi geografis ini membantu anda menemukan informasi TPS terdekat dimana anda berada</p>
+        <img src="images/kecamatan.jpg">
       </div>
     </div>
   </div>
@@ -331,12 +292,14 @@ center {
     <div class="col-xl-6 col-md-6 col-sm-12">
       <div class="card text-white mb-4" style="background-image: url('images/kecamatan.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
         <div class="card-body">
-            <h1 style="font-size: 30px; margin-top: 25px; text-align: center">KECAMATAN</h1>
+          <center>
+            <h1 style="font-size: 30px; margin-top: 25px;">KECAMATAN</h1>
             <h1 align="center" style="font-size: 25px;">
               <a href="kota" style="color: yellow; text-decoration: none;">
                 <?=$h2; ?>
               </a>
             </h1>
+          </center>
         </div>
       </div>
     </div>
@@ -344,12 +307,14 @@ center {
     <div class="col-xl-6 col-md-6 col-sm-12">
       <div class="card text-white mb-4" style="background-image: url('images/home.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; width: 100%; height: 150px;">
         <div class="card-body">
-            <h1 style="font-size: 30px; margin-top: 25px; text-align: center;">SEBARAN TPS</h1>
+          <center>
+            <h1 style="font-size: 30px; margin-top: 25px;">SEBARAN TPS</h1>
             <h1 align="center" style="font-size: 25px;">
               <a href="sebaran" style="color: yellow; text-decoration: none;">
                 <?=$h4; ?>
               </a>
             </h1>
+          </center>
         </div>
       </div>
     </div>
