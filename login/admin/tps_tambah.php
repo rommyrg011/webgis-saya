@@ -37,12 +37,16 @@ if($_SESSION['status'] =="login"){
     <form method="post" enctype="multipart/form-data" autocomplete="off">
         <div class="mb-3 mt-3">
         <label>Nama Kecamatan :</label>
-        <input type="text" class="form-control" name="kecamatan" placeholder="Nama Kecamatan" style="text-transform: uppercase;" required>
+        <input type="text" class="form-control" name="kecamatan" placeholder="Nama Kecamatan" required>
         </div>
         
         <div class="mb-3">
         <label>Tipe :</label>
-        <input type="text" class="form-control" name="tipe" placeholder="Tipe" style="text-transform: uppercase;" required>
+        <select type="text" class="form-select" name="tipe" required>
+            <option hidden>--pilih --</option>
+            <option>TPST3R</option>
+            <option>TPS</option>
+        </select>
         </div>
 
         <div class="mb-3">
@@ -99,7 +103,8 @@ if($_SESSION['status'] =="login"){
         <input type="text" class="form-control" name="maps_direction" placeholder="Maps Direction" required>
         </div>
         <label>Foto TPS:</label>
-        <input type="file" name="file" class="form-control mb-3">
+        <br>
+        <input type="file" name="file">
         </div>
         <button type="submit" class="btn btn-primary" name="tambahtps">Simpan</button>
   </form>

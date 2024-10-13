@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Administrator - <?php echo $_SESSION['nama_lengkap']; ?></title>
-        <link rel="website icon" type="png" href="../../images/map.png" />
+        <link rel="website icon" type="png" href="../../images/maps.png" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="../css/styles.css" rel="stylesheet" />
 

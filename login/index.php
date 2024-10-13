@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Silahkan Login</title>
-    <link rel="website icon" type="png" href="../images/map.png" />
+    <link rel="website icon" type="png" href="../images/maps.png" />
     <link href="./admin/template/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -58,6 +58,9 @@
     .btn-md:hover {
         color: white;
     }
+    a{
+        text-decoration: none;
+    }
 </style>
 
 <body>
@@ -69,7 +72,7 @@
 
                         <div class="col-lg-6">
                             <br>
-                           <center><img src="../images/map.png"></center>
+                           <center><img src="../images/maps.png"></center>
                             
                             
                             <!-- <center>

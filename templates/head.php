@@ -8,7 +8,7 @@
     <meta content="" name="keywords" />
 
 
-    <link href="images/map.png" rel="icon" />
+    <link href="images/maps.png" rel="icon" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />

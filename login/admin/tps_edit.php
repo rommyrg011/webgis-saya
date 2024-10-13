@@ -75,17 +75,21 @@ while($data=mysqli_fetch_array($tampiltps)){
                             <div class="mb-3 mt-3">
                             <input type="hidden" name="id_tps" value="<?=$id_tps;?>">
                             <label>Nama Kecamatan :</label>
-                            <input type="text" class="form-control" name="kecamatan" placeholder="Nama Kecamatan" value="<?=$kec;?>" style="text-transform: uppercase;" required>
+                            <input type="text" class="form-control" name="kecamatan" placeholder="Nama Kecamatan" value="<?=$kec;?>" required>
                             </div>
                             
                             <div class="mb-3">
                             <label>Tipe :</label>
-                            <input type="text" class="form-control" name="tipe" placeholder="Tipe" value="<?=$tipe;?>" style="text-transform: uppercase;" required>
+                            <select type="text" class="form-select" name="tipe" placeholder="Tipe" value="" required>
+                                <option hidden><?=$tipe;?></option>
+                                <option>TPST3R</option>
+                                <option>TPS</option>
+                            </select>
                             </div>
 
                             <div class="mb-3">
                             <label>Nama TPS :</label>
-                            <input type="text" class="form-control" name="nama_tps" placeholder="Nama TPS" value="<?=$namatps;?>" style="text-transform: uppercase;" required>
+                            <input type="text" class="form-control" name="nama_tps" placeholder="Nama TPS" value="<?=$namatps;?>" required>
                             </div>
 
                             <div class="mb-3">
@@ -142,7 +146,8 @@ while($data=mysqli_fetch_array($tampiltps)){
                             <label class="mb-2">Foto TPS:</label>
                             <br>
                             <div id="imagePreview"><?=$img;?></div>
-                            <input type="file" name="file" class="form-control mt-3" id="fileInput" onchange="previewImage(event)">
+                            <br>
+                            <input type="file" name="file" id="fileInput" onchange="previewImage(event)">
                             </div>
                             <button type="submit" class="btn btn-primary" name="edittps">Simpan</button>
                         </form>
