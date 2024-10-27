@@ -57,7 +57,7 @@
               "processing": true,
               "serverSide": true,
               "ajax":{
-                       "url": "ajax/ajax_kabupaten.php?action=dataKecamatan",
+                       "url": "ajax/ajax_kota.php?action=dataKecamatan",
                        "dataType": "json",
                        "type": "POST"
                      },
