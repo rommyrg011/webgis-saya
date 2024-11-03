@@ -42,5 +42,14 @@
     table.table td {
         font-size: 14px;
     }
+
+    .zoomx {
+        width: 180px;
+        border: 2px solid black;
+    }
+    .zoomx:hover {
+        transform: scale(1.5);
+        transition: 0.3s ease;
+    }
         </style>
     </head>

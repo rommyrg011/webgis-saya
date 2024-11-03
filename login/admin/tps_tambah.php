@@ -104,7 +104,9 @@ if($_SESSION['status'] =="login"){
         </div>
         <label>Foto TPS:</label>
         <br>
-        <input type="file" name="file">
+        <div id="imagePreview"></div>
+        <br>
+        <input type="file" name="file" id="fileInput" onchange="previewImage(event)">
         </div>
         <button type="submit" class="btn btn-primary" name="tambahtps">Simpan</button>
   </form>
