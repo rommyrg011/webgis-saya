@@ -68,8 +68,8 @@ if($_GET['action'] == "dataTps"){
     		}
 			$nestedData['image'] = $img;
 			$nestedData['tipe'] = $r['tipe'];
-			$nestedData['nama_tps'] = $r['nama_tps'];
 			$nestedData['kecamatan'] = $r['kecamatan'];
+			$nestedData['nama_tps'] = $r['nama_tps'];
             // memperpendek jika tampil di tabel
 			if (strlen($r['alamat']) > 40) {
 				$alamat = substr($r['alamat'], 0, 40) . '...';
